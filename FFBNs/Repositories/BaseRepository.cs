@@ -8,7 +8,7 @@ namespace FFBNs.Repositories
         private readonly string _connectionString;
         public BaseRepository(IConfiguration configuration)
         {
-            _connectionString = configuration.GetConnectionString("DefultConnection");
+            _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
         protected SqlConnection Connection
         {
