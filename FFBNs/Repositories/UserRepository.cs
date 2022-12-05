@@ -16,12 +16,9 @@ namespace FFBNs.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                          SELECT up.Id AS 'UserId', up.FirstName, up.LastName, up.DisplayName, 
-                               up.Email, up.CreateDateTime, up.ImageLocation, up.UserTypeId, up.IsActive,
-                               ut.Name AS UserTypeName
-                          FROM UserProfile up
-                               LEFT JOIN UserType ut on up.UserTypeId = ut.Id
-                           ORDER BY up.FirstName
+                          SELECT u.Id AS 'UserId', u.UserName, 
+                               u.email, u.Avatar, u.Interests, u.Disinterests
+                          FROM [User] u
                            ";
 
                     var reader = cmd.ExecuteReader();
@@ -32,11 +29,10 @@ namespace FFBNs.Repositories
                         userProfiles.Add(new UserProfile()
                         {
                             Id = DbUtils.GetInt(reader, "UserId"),
-                            DisplayName = DbUtils.GetString(reader, "DisplayName"),
-                            {
-                                Id = DbUtils.GetInt(reader, "UserTypeId"),
-                                Name = DbUtils.GetString(reader, "UserTypeName"),
-                            },
+                            DisplayName = DbUtils.GetString(reader, "UserName"),
+                            PawFilePic = DbUtils.GetString(reader, "Avatar"),
+                            Interests = DbUtils.GetString(reader, "Interests"),
+                            Disinterests = DbUtils.GetString(reader, "DisInterests"),
 
 
 
