@@ -1,6 +1,6 @@
 ﻿namespace FFBNs.Repositories
 {
-    internal interface IUserRepository
+    public class BaseRepository
     {
     }
 }
