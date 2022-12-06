@@ -12,6 +12,7 @@ namespace FFBNs.Repositories
     {
         public UserRepository(IConfiguration configuration) : base(configuration) { }
 
+        //Get all user profiles- good model but likely unused 
         public List<UserProfile> GetAll()
         {
             using (var conn = Connection)
@@ -46,7 +47,43 @@ namespace FFBNs.Repositories
                 }
             }
         }
-        public UserProfile GetById(int id)
+        ////Get user profile by Id
+        //public UserProfile GetById(int id)
+        //{
+        //    using (var conn = Connection)
+        //    {
+        //        conn.Open();
+        //        using (var cmd = conn.CreateCommand())
+        //        {
+        //            cmd.CommandText = @"
+        //                  SELECT d.Id AS 'DogId', d.UserName, 
+        //                       d.Email, d.Avatar, d.Interests
+        //                  FROM [Dog] d
+        //                   ";
+        //            DbUtils.AddParameter(cmd, "@Id", id);
+        //            var reader = cmd.ExecuteReader();
+
+        //            UserProfile singleUserProfile = null;
+        //            while (reader.Read())
+        //            {
+        //                singleUserProfile = (new UserProfile()
+        //                {
+        //                    Id = id,
+        //                    DisplayName = DbUtils.GetString(reader, "UserName"),
+        //                    Email = DbUtils.GetString(reader, "Email"),
+        //                    PawFilePic = DbUtils.GetString(reader, "Avatar"),
+        //                    Interests = DbUtils.GetString(reader, "Interests")
+        //                });
+        //            }
+        //        reader.Close();
+
+        //        return singleUserProfile;
+        //        }
+        //    }
+        //}
+
+        //Get user profile by Id- Randomly generates
+        public UserProfile GetAtRandom()
         {
             using (var conn = Connection)
             {
@@ -54,11 +91,11 @@ namespace FFBNs.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                          SELECT d.Id AS 'DogId', d.UserName, 
-                               d.Email, d.Avatar, d.Interests
-                          FROM [Dog] d
-                           ";
-                    DbUtils.AddParameter(cmd, "@Id", id);
+                          SELECT TOP 1 d.Id AS 'DogId', d.UserName, 
+                           d.Email, d.Avatar, d.Interests
+                           FROM [Dog] d
+                           ORDER BY NEWID()";
+                    
                     var reader = cmd.ExecuteReader();
 
                     UserProfile singleUserProfile = null;
@@ -66,19 +103,39 @@ namespace FFBNs.Repositories
                     {
                         singleUserProfile = (new UserProfile()
                         {
-                            Id = id,
+                            Id = DbUtils.GetInt(reader, "DogId"),
                             DisplayName = DbUtils.GetString(reader, "UserName"),
                             Email = DbUtils.GetString(reader, "Email"),
                             PawFilePic = DbUtils.GetString(reader, "Avatar"),
                             Interests = DbUtils.GetString(reader, "Interests")
                         });
                     }
-                reader.Close();
+                    reader.Close();
 
-                return singleUserProfile;
+                    return singleUserProfile;
                 }
             }
         }
+
+        public void Add(UserProfile userProfile)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"INSERT INTO [Dog] (Username, Email, Avatar, Interests )
+                                    OUTPUT INSERTED.ID
+                                    VALUES (@Username, @Email, @Avatar, @Interests";
+                    DbUtils.AddParameter(cmd, "@Username", userProfile.DisplayName);
+                    DbUtils.AddParameter(cmd, "@Email", userProfile.Email);
+                    DbUtils.AddParameter(cmd, "@Avatar", userProfile.PawFilePic);
+                    DbUtils.AddParameter(cmd, "@Interests", userProfile.Interests);
+
+                }
+            }
+        }
+
     }
 
 }

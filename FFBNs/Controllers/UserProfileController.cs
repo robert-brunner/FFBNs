@@ -17,26 +17,38 @@ namespace FFBNs.Controllers
             _userRepository = userRepository;
         }
 
-        //GET: api/<UserProfileController>
+        ////GET: api/<UserProfileController>
+        //[HttpGet]
+        //public IActionResult Get()
+        //{
+        //    return Ok(_userRepository.GetAll());
+        //}
+        ////getById
+        //[HttpGet("{id}")]
+        //public IActionResult Get(int id)
+        //{
+        //    var userProfile = _userRepository.GetById(id);
+        //    if (userProfile == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(userProfile);
+        //}
+
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAtRandom()
         {
-            return Ok(_userRepository.GetAll());
-        }
-        //getById
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            var userProfile = _userRepository.GetById(id);
+            var userProfile = _userRepository.GetAtRandom();
             if (userProfile == null)
             {
                 return NotFound();
             }
             return Ok(userProfile);
         }
-    }
-
-
 
     }
+
+
+
+}
 
