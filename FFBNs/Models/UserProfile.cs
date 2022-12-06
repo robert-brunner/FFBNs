@@ -8,9 +8,9 @@ namespace FFBNs.Models
     {
         public int Id { get; set; }
         public string DisplayName { get; set; }
+        public string Email { get; set; }
         public string PawFilePic { get; set; }
         public string Interests { get; set; }
-        public string Disinterests { get; set; }
 
     }
 }

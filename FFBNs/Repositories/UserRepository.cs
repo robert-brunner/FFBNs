@@ -16,9 +16,9 @@ namespace FFBNs.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                          SELECT u.Id AS 'UserId', u.UserName, 
-                               u.email, u.Avatar, u.Interests, u.Disinterests
-                          FROM [User] u
+                          SELECT d.Id AS 'DogId', d.UserName, 
+                               d.Email, d.Avatar, d.Interests
+                          FROM [Dog] d
                            ";
 
                     var reader = cmd.ExecuteReader();
@@ -28,14 +28,11 @@ namespace FFBNs.Repositories
                     {
                         userProfiles.Add(new UserProfile()
                         {
-                            Id = DbUtils.GetInt(reader, "UserId"),
+                            Id = DbUtils.GetInt(reader, "DogId"),
                             DisplayName = DbUtils.GetString(reader, "UserName"),
+                            Email = DbUtils.GetString(reader, "Email"),
                             PawFilePic = DbUtils.GetString(reader, "Avatar"),
                             Interests = DbUtils.GetString(reader, "Interests"),
-                            Disinterests = DbUtils.GetString(reader, "DisInterests"),
-
-
-
                         }); ;
                     }
 
