@@ -6,5 +6,6 @@ namespace FFBNs.Repositories
     public interface IUserRepository
     {
         List<UserProfile> GetAll();
+        UserProfile GetById(int id);
     }
 }
