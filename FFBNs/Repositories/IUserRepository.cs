@@ -8,5 +8,6 @@ namespace FFBNs.Repositories
         //List<UserProfile> GetAll();
         //UserProfile GetById(int id);
         UserProfile GetAtRandom();
+        void Add(UserProfile userProfile);
     }
 }

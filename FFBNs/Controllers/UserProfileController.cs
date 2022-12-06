@@ -1,4 +1,5 @@
-﻿using FFBNs.Repositories;
+﻿using FFBNs.Models;
+using FFBNs.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -45,9 +46,21 @@ namespace FFBNs.Controllers
             }
             return Ok(userProfile);
         }
+        //Hopefully this creates a user Pawfile
+        [HttpPut("{id}")]
+        public IActionResult Add(int id, UserProfile userProfile)
+        {
 
+            _userRepository.Add(userProfile);
+            if (userProfile == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(userProfile);
+
+        }
     }
-
 
 
 }

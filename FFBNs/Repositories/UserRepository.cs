@@ -132,10 +132,11 @@ namespace FFBNs.Repositories
                     DbUtils.AddParameter(cmd, "@Avatar", userProfile.PawFilePic);
                     DbUtils.AddParameter(cmd, "@Interests", userProfile.Interests);
 
+                    userProfile.Id = (int)cmd.ExecuteScalar();
+
                 }
             }
         }
 
     }
-
 }
