@@ -5,6 +5,8 @@ import {UserProfileDetails} from "../users/UserProfileDetails";
 
 export default function ApplicationViews(){
     return(
-        <Route path="*" element={<Navigate to="/" />} />
+        <Routes>
+            <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
     )
 }
