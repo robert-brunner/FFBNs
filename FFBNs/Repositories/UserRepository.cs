@@ -126,7 +126,7 @@ namespace FFBNs.Repositories
                 {
                     cmd.CommandText = @"INSERT INTO [Dog] (Username, Email, Avatar, Interests )
                                     OUTPUT INSERTED.ID
-                                    VALUES (@Username, @Email, @Avatar, @Interests";
+                                    VALUES (@Username, @Email, @Avatar, @Interests)";
                     DbUtils.AddParameter(cmd, "@Username", userProfile.DisplayName);
                     DbUtils.AddParameter(cmd, "@Email", userProfile.Email);
                     DbUtils.AddParameter(cmd, "@Avatar", userProfile.PawFilePic);

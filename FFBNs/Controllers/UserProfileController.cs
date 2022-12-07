@@ -47,8 +47,8 @@ namespace FFBNs.Controllers
             return Ok(userProfile);
         }
         //Hopefully this creates a user Pawfile
-        [HttpPut("{id}")]
-        public IActionResult Add(int id, UserProfile userProfile)
+        [HttpPost()]
+        public IActionResult Add( UserProfile userProfile)
         {
 
             _userRepository.Add(userProfile);
