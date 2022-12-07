@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from 'react';
 import { NavLink as RRNavLink } from "react-router-dom";
-import { getCurrentUser, logout } from '../../Managers/UserProfileManager';
+import { getCurrentUser, logout } from '../../managers/UserProfileManager';
 import {
   Collapse,
   Navbar,
@@ -16,15 +16,15 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
   const toggle = () => setIsOpen(!isOpen);
   const [localUser, setLocalUser] = useState("");
 
-  useEffect(() => {
-    const loggedInUser = getCurrentUser()
-    setLocalUser(loggedInUser)
-  }, [isLoggedIn]);
+//   useEffect(() => {
+//     const loggedInUser = getCurrentUser()
+//     setLocalUser(loggedInUser)
+//   }, [isLoggedIn]);
 
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand tag={RRNavLink} to="/">Tabloid</NavbarBrand>
+        <NavbarBrand tag={RRNavLink} to="/">Paw-Or-Not</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           
@@ -33,11 +33,8 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
             {isLoggedIn &&
                 <div style={{display: 'flex'}}>
               <NavItem>
-                <NavLink tag={RRNavLink} to="/">Home</NavLink>
+                <NavLink tag={RRNavLink} to="/">Test</NavLink>
               </NavItem>
-              <NavItem>
-              <NavLink tag={RRNavLink} to="/categories">Category Management</NavLink>
-            </NavItem>
             </div>
             }
           </Nav>

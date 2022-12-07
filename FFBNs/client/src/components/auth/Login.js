@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useNavigate, Link } from "react-router-dom";
-import { login } from "../../Managers/UserProfileManager";
+import { login } from "../../managers/UserProfileManager";
 
 export default function Login({ setIsLoggedIn }) {
   const navigate = useNavigate();
 
   const [Email, setEmail] = useState();
-  const [password, setPassword] = useState();
+//   const [password, setPassword] = useState();
 
   const loginSubmit = (e) => {
     e.preventDefault();
-    login({ Email, password })
+    login({ Email})
       .then(r => {
         console.log(r)
         // if (r.isActive == 0){  //conditional to prevent deactivated users from entering the application, stop here at the alert
@@ -20,11 +20,11 @@ export default function Login({ setIsLoggedIn }) {
         // }
         // else 
         if (r) {  //if a user is active hit here and navigate into application
-          setIsLoggedIn(true)
+        //   setIsLoggedIn(true)
           navigate('/')
         }
         else { //invalid Email or password will hit here
-          alert("Invalid Email or password")
+          alert("Invalid Email")
         }
       })
   };

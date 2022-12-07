@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useNavigate } from "react-router-dom";
-import { register } from "../../Managers/UserProfileManager";
+import { register } from "../../managers/UserProfileManager";
 
 
 export default function Register({ setIsLoggedIn }) {
@@ -22,9 +22,8 @@ export default function Register({ setIsLoggedIn }) {
           navigate('/')
         });
     }
-  };
-
-  return (
+    
+    return (
     <div className="m-5">
       <Form onSubmit={registerClick}>
         <fieldset>
@@ -43,4 +42,6 @@ export default function Register({ setIsLoggedIn }) {
       </Form>
     </div>
   );
-
+};
+  
+  
