@@ -60,6 +60,17 @@ namespace FFBNs.Controllers
             return Ok(userProfile);
 
         }
+        [HttpGet("GetByEmail")]
+        public IActionResult GetByEmail(string email)
+        {
+            var user = _userRepository.GetByEmail(email);
+
+            if (email == null || user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
     }
 
 

@@ -9,5 +9,6 @@ namespace FFBNs.Repositories
         //UserProfile GetById(int id);
         UserProfile GetAtRandom();
         void Add(UserProfile userProfile);
+        UserProfile GetByEmail(string Email);
     }
 }

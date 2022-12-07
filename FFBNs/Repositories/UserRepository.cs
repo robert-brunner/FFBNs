@@ -47,40 +47,9 @@ namespace FFBNs.Repositories
                 }
             }
         }
-        ////Get user profile by Id
-        //public UserProfile GetById(int id)
-        //{
-        //    using (var conn = Connection)
-        //    {
-        //        conn.Open();
-        //        using (var cmd = conn.CreateCommand())
-        //        {
-        //            cmd.CommandText = @"
-        //                  SELECT d.Id AS 'DogId', d.UserName, 
-        //                       d.Email, d.Avatar, d.Interests
-        //                  FROM [Dog] d
-        //                   ";
-        //            DbUtils.AddParameter(cmd, "@Id", id);
-        //            var reader = cmd.ExecuteReader();
 
-        //            UserProfile singleUserProfile = null;
-        //            while (reader.Read())
-        //            {
-        //                singleUserProfile = (new UserProfile()
-        //                {
-        //                    Id = id,
-        //                    DisplayName = DbUtils.GetString(reader, "UserName"),
-        //                    Email = DbUtils.GetString(reader, "Email"),
-        //                    PawFilePic = DbUtils.GetString(reader, "Avatar"),
-        //                    Interests = DbUtils.GetString(reader, "Interests")
-        //                });
-        //            }
-        //        reader.Close();
 
-        //        return singleUserProfile;
-        //        }
-        //    }
-        //}
+
 
         //Get user profile by Id- Randomly generates
         public UserProfile GetAtRandom()
@@ -95,7 +64,7 @@ namespace FFBNs.Repositories
                            d.Email, d.Avatar, d.Interests
                            FROM [Dog] d
                            ORDER BY NEWID()";
-                    
+
                     var reader = cmd.ExecuteReader();
 
                     UserProfile singleUserProfile = null;
@@ -137,6 +106,74 @@ namespace FFBNs.Repositories
                 }
             }
         }
+        public UserProfile GetByEmail(string Email)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                          SELECT d.Id AS 'DogId', d.UserName, 
+                               d.Email, d.Avatar, d.Interests
+                          FROM [Dog] d
+                           ";
 
+                    DbUtils.AddParameter(cmd, "@Email", Email);
+
+                    UserProfile userProfile = null;
+
+                    var reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        userProfile = new UserProfile()
+                        {
+                            Id = DbUtils.GetInt(reader, "DogId"),
+                            DisplayName = DbUtils.GetString(reader, "Username"),
+                            Email = DbUtils.GetString(reader, "Email")
+                        };
+                    }
+                    reader.Close();
+
+                    return userProfile;
+                }
+            }
+
+        }
     }
 }
+
+        ////Get user profile by Id
+        //public UserProfile GetById(int id)
+        //{
+        //    using (var conn = Connection)
+        //    {
+        //        conn.Open();
+        //        using (var cmd = conn.CreateCommand())
+        //        {
+        //            cmd.CommandText = @"
+        //                  SELECT d.Id AS 'DogId', d.UserName, 
+        //                       d.Email, d.Avatar, d.Interests
+        //                  FROM [Dog] d
+        //                   ";
+        //            DbUtils.AddParameter(cmd, "@Id", id);
+        //            var reader = cmd.ExecuteReader();
+
+        //            UserProfile singleUserProfile = null;
+        //            while (reader.Read())
+        //            {
+        //                singleUserProfile = (new UserProfile()
+        //                {
+        //                    Id = id,
+        //                    DisplayName = DbUtils.GetString(reader, "UserName"),
+        //                    Email = DbUtils.GetString(reader, "Email"),
+        //                    PawFilePic = DbUtils.GetString(reader, "Avatar"),
+        //                    Interests = DbUtils.GetString(reader, "Interests")
+        //                });
+        //            }
+        //        reader.Close();
+
+        //        return singleUserProfile;
+        //        }
+        //    }
+        //}
