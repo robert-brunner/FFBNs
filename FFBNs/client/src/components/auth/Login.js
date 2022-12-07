@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useNavigate, Link } from "react-router-dom";
 import { login } from "../../managers/UserProfileManager";
 
-export default function Login({ setIsLoggedIn }) {
+export const  Login = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
 
   const [Email, setEmail] = useState();
@@ -20,7 +20,7 @@ export default function Login({ setIsLoggedIn }) {
         // }
         // else 
         if (r) {  //if a user is active hit here and navigate into application
-        //   setIsLoggedIn(true)
+          setIsLoggedIn(true)
           navigate('/')
         }
         else { //invalid Email or password will hit here
