@@ -108,7 +108,7 @@ function Deck() {
   );
 
   return props.map(({ x, y, rot, scale }, i) => (
-    <Card
+    <Card className="Entity"
       i={i}
       x={x}
       y={y}

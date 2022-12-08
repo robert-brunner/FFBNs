@@ -22,6 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .InnerBox {
@@ -39,9 +40,10 @@
   box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
   0 10px 10px -10px rgba(50, 50, 73, 0.3);
   
+  
+  
 }
-/* html,
-body {
+.Entity {
   overscroll-behavior-y: contain;
   margin: 0;
   padding: 0;
@@ -51,12 +53,15 @@ body {
   font-family: Raleway, sans-serif;
   position: fixed;
   overflow: hidden;
-} */
+}
 
-img {
+.CarouselImg {
   height: 380px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  display:inline-block;
+  width:290px;
+  
 }
 
 button[aria-label="previous"],
@@ -65,37 +70,21 @@ button[aria-label="next"] {
   color: black !important;
 }
 
-h2 {
-  display: inline-block;
-  margin-right: 10px;
-}
 
 .Age {
   opacity: .7;
   font-size: 1.35rem;
+  top:-12px;
 }
 
-.Loc{
-  margin-top: -15px;
-  margin-left: 2px;
-  color: lightgray;
-}
-.FillerBody {
-  color: darkgray;
-}
 
 .Carousel{
   height: 380px !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .card {
   height: 500px !important;
-}
-
-.slider-control-bottomcenter {
-  bottom: -15px !important;
-}
-
-.slider-control-bottomcenter > ul > li > button {
-  color: salmon !important;
+  
 }

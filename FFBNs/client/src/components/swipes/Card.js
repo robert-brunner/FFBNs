@@ -27,13 +27,11 @@ class Card extends React.Component {
           <div className="card">
             <Carousel className="Carousel">
               {pics.map(pic => (
-                <img src={pic} alt="profilePicture" />
+                <img className="CarouselImg" src={pic} alt="profilePicture" />
               ))}
             </Carousel>
-            <h2 className="DisplayName">{name},</h2>
-            <h2 className="Age">{age}</h2>
-            <h5 className="Loc">{distance}</h5>
-            <h5 className="FillerBody">{text}</h5>
+            <h4 className="DisplayName">{name},</h4>
+            <p className="Age">{age}</p>
           </div>
         </animated.div>
       </animated.div>
