@@ -117,7 +117,7 @@ namespace FFBNs.Repositories
                           SELECT d.Id AS 'DogId', d.UserName, 
                                d.Email, d.Avatar, d.Interests
                           FROM [Dog] d
-                           ";
+                          WHERE Email = @Email";
 
                     DbUtils.AddParameter(cmd, "@Email", Email);
 
