@@ -4,6 +4,7 @@ import Header from "./components/nav/Header";
 import ApplicationViews from "./components/views/ApplicationViews";
 import { useEffect } from 'react';
 import {Authorize} from './components/views/Authorize';
+import Deck from './components/swipes/Deck';
 
 function App() {
   const [ isLoggedIn, setIsLoggedIn ] = useState(true);
@@ -26,8 +27,13 @@ function App() {
         :
         <Authorize setIsLoggedIn={setIsLoggedIn}/>
         }
+        <Deck/>
     </Router>
   );
 }
 
 export default App;
+
+//element = { different version of home page}
+
+// / home - same but with carousel
