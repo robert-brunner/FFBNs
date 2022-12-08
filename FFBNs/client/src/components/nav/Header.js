@@ -22,7 +22,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
 //   }, [isLoggedIn]);
 
   return (
-    <div>
+    <div className="Header">
       <Navbar color="light" light expand="md">
         <NavbarBrand tag={RRNavLink} to="/">Paw-Or-Not</NavbarBrand>
         <NavbarToggler onClick={toggle} />

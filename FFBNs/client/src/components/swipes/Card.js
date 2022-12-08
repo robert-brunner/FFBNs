@@ -1,5 +1,5 @@
 import React from "react";
-import { animated, interpolate } from "react-spring";
+import { animated, interpolate } from "react-spring/";
 import Carousel from "nuka-carousel";
 
 class Card extends React.Component {
@@ -8,7 +8,8 @@ class Card extends React.Component {
     const { name, age, distance, text, pics } = objs[i];
 
     return (
-      <animated.div
+    
+      <animated.div className="OuterBox"
         key={i}
         style={{
           transform: interpolate(
@@ -17,25 +18,26 @@ class Card extends React.Component {
           )
         }}
       >
-        <animated.div
+        <animated.div className="InnerBox"
           {...bind(i)}
           style={{
             transform: interpolate([rot, scale], trans)
           }}
         >
           <div className="card">
-            <Carousel>
+            <Carousel className="Carousel">
               {pics.map(pic => (
                 <img src={pic} alt="profilePicture" />
               ))}
             </Carousel>
-            <h2>{name},</h2>
-            <h2>{age}</h2>
-            <h5>{distance}</h5>
-            <h5>{text}</h5>
+            <h2 className="DisplayName">{name},</h2>
+            <h2 className="Age">{age}</h2>
+            <h5 className="Loc">{distance}</h5>
+            <h5 className="FillerBody">{text}</h5>
           </div>
         </animated.div>
       </animated.div>
+      
     );
   }
 }
