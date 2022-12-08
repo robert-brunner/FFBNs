@@ -31,7 +31,7 @@ class Card extends React.Component {
               ))}
             </Carousel>
             <h4 className="DisplayName">{name},</h4>
-            <p className="Age">{age}</p>
+            <p className="Interest">{age}</p>
           </div>
         </animated.div>
       </animated.div>
