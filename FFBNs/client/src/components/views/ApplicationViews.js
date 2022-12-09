@@ -3,6 +3,8 @@ import {Navigate, Route, Routes} from "react-router-dom";
 import  {Login}  from "../auth/Login";
 import Register from "../auth/Register";
 import Deck from '../swipes/Deck';
+import User from '../users/User'
+
 
 
 
@@ -10,6 +12,7 @@ export default function ApplicationViews(){
     return(
         <Routes>
             <Route path="/" element={<Deck/>} />
+            <Route path="users" element={<User/>} />
             
         </Routes>
     )

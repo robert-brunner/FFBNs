@@ -37,7 +37,7 @@
 
 //uses the Get UserProfile Fetch Command that returns a randomized sql query
   export const getRandomUser = () => {
-      return fetch(`${apiUrl}/api/userProfile`)//http GET request or  `/api/userProfile`
+      return fetch(`${apiUrl}/api/UserProfile`)//http GET request or  `/api/userProfile`
       .then((res) => res.json())
   };
 
