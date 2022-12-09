@@ -1,7 +1,19 @@
 import React from "react";
 import { animated, interpolate } from "react-spring/";
 import Carousel from "nuka-carousel";
+// import { getRandomUser } from "../../managers/UserProfileManager";
+// import { User } from "../users/User"
+// import { useEffect } from "react";
 
+// export const RandomUser = () => {
+//     const [user, setUser] = useState([]);
+
+//     const getUsers = () => {
+//         getRandomUser().then ( all => setUser(all))
+//     };
+//     useEffect(()=>{
+//         getUsers();
+//     }, []);}
 class Card extends React.Component {
   render() {
     const { i, x, y, rot, scale, trans, cards, bind, objs } = this.props;

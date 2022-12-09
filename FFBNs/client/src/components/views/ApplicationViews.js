@@ -8,7 +8,8 @@ import Deck from '../swipes/Deck';
 export default function ApplicationViews(){
     return(
         <Routes>
-        <Route path="/" element={<Deck/>} />            
+        <Route path="/" element={<Deck/>} />
+        {/* <Route path= "categories" element={<RandomUser/>}             */}
         {/* <Route path="*" element={<Navigate to="/" />} /> */}
         {/* <Route path="/Login" element={<Login/>} />
         <Route path= "/Register" element={<Register/>} />         */}

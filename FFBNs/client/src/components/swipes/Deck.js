@@ -2,11 +2,24 @@ import React, { useState } from "react";
 import { useSprings } from "react-spring";
 import { useGesture } from "react-with-gesture";
 import Card from "./Card";
+// import { getRandomUser } from "../../managers/UserProfileManager";
+// import { User } from "../users/User"
+// import { useEffect } from "react";
 import "../styles/Deck.css"
 
+// export const RandomUser = () => {
+//     const [user, setUser] = useState([]);
+
+//     const getUsers = () => {
+//         getRandomUser().then ( all => setUser(all))
+//     };
+//     useEffect(()=>{
+//         getUsers();
+//     }, []);}
 const cards = [1, 2, 3, 4];
 // the following will be changed once i get it working
-const objs = [
+const objs = 
+[
   {
     pics: [
       "https://images.unsplash.com/photo-1522263842439-347f062b8475?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
@@ -118,6 +131,7 @@ function Deck() {
   );
 
   return props.map(({ x, y, rot, scale }, i) => (
+    
     <Card className="Entity"
       i={i}
       x={x}
@@ -131,6 +145,7 @@ function Deck() {
     />
   ));
 }
+
 
 export default Deck;
 
