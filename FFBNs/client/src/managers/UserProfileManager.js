@@ -36,10 +36,14 @@
   
 
 //uses the Get UserProfile Fetch Command that returns a randomized sql query
-  export const getRandomUser = () => {
-      return fetch(`${apiUrl}/api/UserProfile`)//http GET request or  `/api/userProfile`
-      .then((res) => res.json())
-  };
+export const getRandomUser = () => {
+    return fetch(`${apiUrl}/api/UserProfile`)//http GET request or  `/api/userProfile`
+    .then((res) => res.json())
+};
+export const GetUllPawFiles = () => {
+    return fetch(`${apiUrl}/api/UserProfile/GetAll`)//http GET request or  `/api/userProfile`
+    .then((res) => res.json())
+};
 
 
   // export const getAll = () => {
