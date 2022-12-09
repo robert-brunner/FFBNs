@@ -83,6 +83,9 @@ function Deck() {
 
       const dir = xDir < 0 ? -1 : 1;
       // Direction should either point left or right
+      //make state for id of card; if -1 run no fetch call with id
+      //else
+      
 
       if (!down && trigger) gone.add(index);
       // If button/finger's up and trigger velocity is reached, we flag the card ready to fly out
@@ -130,3 +133,12 @@ function Deck() {
 }
 
 export default Deck;
+
+
+
+/*Things to accomplish with Nick----
+-------------------------------------
+
+-fix overscroll
+-change images to read database
+ */

@@ -20,15 +20,16 @@ function App() {
   },[isLoggedIn])
 
   return (
+    <>
     <Router>
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
         { isLoggedIn ?
-        <ApplicationViews  />
+        <ApplicationViews  />        
         :
         <Authorize setIsLoggedIn={setIsLoggedIn}/>
         }
-        <Deck/>
     </Router>
+    </>
   );
 }
 

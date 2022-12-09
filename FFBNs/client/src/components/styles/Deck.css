@@ -43,7 +43,7 @@
   
   
 }
-/* .Entity {
+.Entity {
   overscroll-behavior-y: contain;
   margin: 0;
   padding: 0;
@@ -53,7 +53,7 @@
   font-family: Raleway, sans-serif;
   position: fixed;
   overflow: hidden;
-} */
+}
 
 .CarouselImg {
   height: 380px;
