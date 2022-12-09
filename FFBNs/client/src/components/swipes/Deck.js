@@ -1,21 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSprings } from "react-spring";
 import { useGesture } from "react-with-gesture";
 import Card from "./Card";
 import "../styles/Deck.css"
-// import { getRandomUser } from "../../managers/UserProfileManager";
-// import { User } from "../users/User"
-// import { useEffect } from "react";
 
-// export const RandomUser = () => {
-//     const [user, setUser] = useState([]);
 
-//     const getUsers = () => {
-//         getRandomUser().then ( all => setUser(all))
-//     };
-//     useEffect(()=>{
-//         getUsers();
-//     }, []);}
 const cards = [1, 2, 3, 4];
 // the following will be changed once i get it working
 const objs = 

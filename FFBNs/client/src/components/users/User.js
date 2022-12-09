@@ -4,12 +4,13 @@ import { Table } from "reactstrap";
 import { UserProfileItem } from "./UserProfileItem";
 
 
-export default function UserProfile () {
-    [userPawFiles, setUserPawfiles] = useState([]);
+export const UserProfile = () => {
+   const [userPawFiles, setUserPawfiles] = useState({});
 
     const getDogProfile = () => {
         getRandomUser()
-        .then(allUsers => setUserPawfiles(allUsers))
+        .then(allUsers => {
+          setUserPawfiles(allUsers)})
     }
     useEffect(() =>{
         getDogProfile();
@@ -20,18 +21,23 @@ export default function UserProfile () {
     <Table>
       <thead>
         <tr>
-          <th>Full Name</th>
-          <th>Display Name</th>
-
-          
+          <th>{userPawFiles.displayName}</th>
+          <th>{userPawFiles.interests}</th>
+          <th>{userPawFiles.pawFilePic}</th>
         </tr>
       </thead>
       <tbody>
-          {userPawFiles.map((user) => (
-            <UserProfileItem key={user.id} user={user} setUserPawfile={setUserPawfiles} />
-          ))}
+          {
+            <UserProfileItem key={userPawFiles.id} user={userPawFiles} setUserPawfile={setUserPawfiles} />
+          }
       </tbody>
     </Table>
     </div>
   );
 }
+
+// "id": 1,
+// "displayName": "Rufus",
+// "email": "rufus@throwAbone.com",
+// "pawFilePic": null,
+// "interests": "Fetch"

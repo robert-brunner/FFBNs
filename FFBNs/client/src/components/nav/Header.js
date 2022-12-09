@@ -29,12 +29,6 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
             {isLoggedIn &&
                 <div style={{display: 'flex'}}>
               <NavItem>
-              {/* <NavItem> 
-                  <a aria-current="page" className="nav-link"
-                    style={{ cursor: "pointer" }} onClick={() => {
-                      RandomUser()
-                    }}>RandomUser</a>
-                </NavItem> */}
               </NavItem>
               
             </div>

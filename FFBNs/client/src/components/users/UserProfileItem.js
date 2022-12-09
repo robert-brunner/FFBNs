@@ -1,26 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const UserProfileItem = ({ paw, isMy }) => {
+export const UserProfileItem = ({ user }) => {
     return (
 
         <tr>
             <td>
-                {isMy ?
-                    <Link to={`/my-posts/${paw.id}`}>
-                        {paw.title}
+                
+                    <Link to={`users${user.id}`}>
                     </Link>
-                    :
-                    <Link to={`/posts/${paw.id}`}>
-                        {paw.title}
-                    </Link>
-                }
+                    
+                
             </td>
             <td>
-                {paw.userProfile.displayName}
-            </td>
-            <td>
-                {paw.category.name}
+                {user.userProfile?.displayName}
             </td>
         </tr>
 
