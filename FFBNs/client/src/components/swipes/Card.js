@@ -53,3 +53,6 @@ class Card extends React.Component {
 }
 
 export default Card;
+
+
+/* get all for users and put them in state - feed */

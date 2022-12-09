@@ -11,15 +11,11 @@ import {
   NavLink
 } from 'reactstrap';
 
+
 export default function Header({ isLoggedIn, setIsLoggedIn }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const [localUser, setLocalUser] = useState("");
-
-//   useEffect(() => {
-//     const loggedInUser = getCurrentUser()
-//     setLocalUser(loggedInUser)
-//   }, [isLoggedIn]);
 
   return (
     <div className="Header">
@@ -33,7 +29,12 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
             {isLoggedIn &&
                 <div style={{display: 'flex'}}>
               <NavItem>
-                <NavLink tag={RRNavLink} to="/">Test</NavLink>
+              {/* <NavItem> 
+                  <a aria-current="page" className="nav-link"
+                    style={{ cursor: "pointer" }} onClick={() => {
+                      RandomUser()
+                    }}>RandomUser</a>
+                </NavItem> */}
               </NavItem>
               
             </div>
@@ -49,6 +50,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
                       setIsLoggedIn(false)
                     }}>Logout</a>
                 </NavItem>
+                
               </>
             }
             {!isLoggedIn &&

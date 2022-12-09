@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useSprings } from "react-spring";
 import { useGesture } from "react-with-gesture";
 import Card from "./Card";
+import "../styles/Deck.css"
 // import { getRandomUser } from "../../managers/UserProfileManager";
 // import { User } from "../users/User"
 // import { useEffect } from "react";
-import "../styles/Deck.css"
 
 // export const RandomUser = () => {
 //     const [user, setUser] = useState([]);
@@ -22,7 +22,7 @@ const objs =
 [
   {
     pics: [
-      "https://images.unsplash.com/photo-1522263842439-347f062b8475?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+      "https://cdn.shopify.com/s/files/1/0663/2355/articles/should-dogs-wear-clothes-insight-on-the-controversial-topic-809351.jpg?v=1563678666"
     ],
     name: "Chloe",
     age: 18,
@@ -31,7 +31,7 @@ const objs =
   },
   {
     pics: [
-      "https://images.unsplash.com/photo-1535378719329-f0a8b9a42152?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+      "https://pbs.twimg.com/profile_images/782816301064548352/oxfkAyxo_400x400.jpg"
     ],
     name: "Sarah",
     age: 24,
@@ -41,7 +41,7 @@ const objs =
   },
   {
     pics: [
-      "https://images.unsplash.com/photo-1514924801778-1db0aba75e9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+      "https://cdn.shopify.com/s/files/1/0553/8116/4240/products/CPNRCC580090-0001.jpg?v=1631113273"
     ],
     name: "Savannah",
     age: 29,
@@ -50,8 +50,8 @@ const objs =
   },
   {
     pics: [
-      "https://images.unsplash.com/photo-1456885284447-7dd4bb8720bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-      "https://images.unsplash.com/photo-1532635270-c09dac425ca9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+      "https://cdn-prd.content.metamorphosis.com/wp-content/uploads/sites/6/2022/03/hawaiian-dog-shirt-main-768x512.jpg",
+      "https://cdn.shopify.com/s/files/1/0271/5009/0295/products/doghawaiianshirtsblue_11_320x.jpg?v=1657009480"
     ],
     name: "Jane",
     age: 22,
