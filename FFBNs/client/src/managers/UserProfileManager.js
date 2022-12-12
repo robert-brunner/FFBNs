@@ -34,6 +34,13 @@
     });
 };
   
+//----------------------------------------
+//gets the current userProfile information
+export const getCurrentUser = () => {
+  const currentUser = localStorage.getItem("userProfile");
+
+  return JSON.parse(currentUser);  //JSON.parse()  the local user object coming back from API to use properties of that object
+};
 
 //uses the Get UserProfile Fetch Command that returns a randomized sql query
 export const getRandomUser = () => {
