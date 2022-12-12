@@ -37,10 +37,23 @@
 //----------------------------------------
 //gets the current userProfile information
 export const getCurrentUser = () => {
-  const currentUser = localStorage.getItem("userProfile");
+  const currentUser = localStorage.getItem("UserProfile");
 
   return JSON.parse(currentUser);  //JSON.parse()  the local user object coming back from API to use properties of that object
 };
+
+export const UpdateDog = (user) => {
+   return fetch(`${apiUrl}/api/userProfile/${user.id}`, {
+     method: "PUT",
+     headers: {
+       "Content-Type": "application/json",
+     },
+     body: JSON.stringify(user),
+   }) 
+   .then ((r)=> r.json())
+       
+ }
+
 
 //uses the Get UserProfile Fetch Command that returns a randomized sql query
 export const getRandomUser = () => {

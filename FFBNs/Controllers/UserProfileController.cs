@@ -73,8 +73,27 @@ namespace FFBNs.Controllers
             }
             return Ok(user);
         }
+        // PUT api/<UserProfileController>/5
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, UserProfile userProfile)
+        {
+
+            _userRepository.Update(userProfile);
+            return NoContent();
+        }
+
+
     }
 
 
 }
 
+//local storage logged in user id instead of use params
+
+
+/* To do today--
+ * Setup link to GetByEmail on front end ( you need to edit/view your current user profile and not a random one like the GetAtRandom Method
+ * 
+ * Finish setting up the EditProfile (PUT)- it needs to be by email
+ 
+ */

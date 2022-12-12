@@ -138,10 +138,35 @@ namespace FFBNs.Repositories
                     return userProfile;
                 }
             }
+        }
+            public void Update(UserProfile userProfile)
+            {
+                using (var conn = Connection)
+                {
+                    conn.Open();
+                    using (var cmd = conn.CreateCommand())
+                    {
+                        cmd.CommandText = @"
+                         UPDATE Dog
+                           SET UserName = @UserName,
+                               Email = @Email,
+                               Avatar = @Avatar,
+                               Interests = @Interests
+                         WHERE Id = @Id";
 
+                        DbUtils.AddParameter(cmd, "@Username", userProfile.DisplayName);
+                        DbUtils.AddParameter(cmd, "@Email", userProfile.Email);
+                        DbUtils.AddParameter(cmd, "@Avatar", userProfile.PawFilePic);
+                        DbUtils.AddParameter(cmd, "@Interests", userProfile.Interests);
+                        DbUtils.AddParameter(cmd, "@Id", userProfile.Id);
+
+                    cmd.ExecuteNonQuery();
+                    }
+                }
+            }
         }
     }
-}
+
 
         ////Get user profile by Id
         //public UserProfile GetById(int id)

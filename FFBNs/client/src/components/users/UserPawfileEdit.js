@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, FormGroup, Label, Input, Form, } from "reactstrap";
-import { getCurrentUser } from "../../managers/UserProfileManager";
+import { UpdateDog, getCurrentUser} from "../../managers/UserProfileManager";
 
 
 export const UserPawfileEdit = () => {
@@ -12,19 +12,19 @@ export const UserPawfileEdit = () => {
         id:0,
         DisplayName: "",
         Email: "",
-        Avatar: "",
-        Interests: "",
+        Avatar: undefined,
+        Interests: undefined,
 
     });
 
-    const getCurrentUser = () => {
-        getCurrentUser(id),then(p =>{
+    const getSingleUser = () => {
+        UpdateDog(getCurrentUser).then(p =>{
             setUserPawfile(p);
         })
     };
     useEffect(()=>{
-        getCurrentUser();
-    })
+        getSingleUser();
+    }, []);
 
     const handleSave = (e) => {
         e.preventDefault();
@@ -37,31 +37,62 @@ export const UserPawfileEdit = () => {
             Interests: userPawfile.Interests,
         };
         console.log(editedUserPawFile)
-        navigate("/user");
+        navigate("/UserProfile");
+    };
+    const handleCancel = (e) => {
+        e.preventDefault()
+        navigate("/UserProfile")
     };
 
     return (<>
         
         
         <section className="mx-5 mb-5 mt-3 ">
-            <h3>Edit User Type For : {userPawfile.DisplayName}</h3>
+            <h3>Edit Post</h3>
             <div className="border mt-3 p-3">
-                <Form onSubmit={handleSave} >
+                <Form onSubmit={handleSave}>
                     <FormGroup>
-                            <Input type="select" name="userType" defaultValue="none" required value={userPawfile.userTypeId}
-                            onChange={(e) => {
-                                const userPawfileCopy = { ...userPawfile };
-                                userPawfileCopy.userTypeId = e.target.value;
-                                setuserPawfile(userPawfileCopy);
-                            }}>
-                                <option value="none" disabled hidden>Select a User Type</option>
-                                {userTypes.map((userType) => (
-                                    <option key={userType.id} value={userType.id}>{userType.name}</option>
-                                ))}
-                            </Input>        
+                        <Label for="DisplayName">PawFileName</Label>
+                        <Input type="text" name="DipslayName" required value={userPawfile.DisplayName}
+                        onChange={(e) => {
+                            const PawFileCopy = { ...userPawfile };
+                            PawFileCopy.DisplayName = e.target.value;
+                            setUserPawfile(PawFileCopy);
+                        }} />
                     </FormGroup>
                     <Button className="button mr-2">Save</Button>
-                    <Button onClick={() => navigate(`/users`)} >Cancel</Button>
+                    <Button onClick={handleCancel} className="button">Cancel</Button>
+                </Form>
+                <Form onSubmit={handleSave}>
+                    <FormGroup>
+                        <Label for="Email">Email</Label>
+                        <Input type="text" name="Email" required value={userPawfile.Email}
+                        onChange={(e) => {
+                            const PawFileCopy = { ...userPawfile };
+                            PawFileCopy.Email = e.target.value;
+                            setUserPawfile(PawFileCopy);
+                        }} />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="Avatar">PawFile Picture</Label>
+                        <Input type="text" name="Avatar" required value={userPawfile.Avatar}
+                        onChange={(e) => {
+                            const PawFileCopy = { ...userPawfile };
+                            PawFileCopy.Interests = e.target.value;
+                            setUserPawfile(PawFileCopy);
+                        }} />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="Interests">Interests</Label>
+                        <Input type="text" name="Interests" required value={userPawfile.Interests}
+                        onChange={(e) => {
+                            const PawFileCopy = { ...userPawfile };
+                            PawFileCopy.Interests = e.target.value;
+                            setUserPawfile(PawFileCopy);
+                        }} />
+                    </FormGroup>
+                    <Button className="button mr-2">Save</Button>
+                    <Button onClick={handleCancel} className="button">Cancel</Button>
                 </Form>
             </div>
         </section>
