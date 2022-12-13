@@ -3,7 +3,7 @@ import {Navigate, Route, Routes} from "react-router-dom";
 import  {Login}  from "../auth/Login";
 import Register from "../auth/Register";
 // import Deck from '../swipes/Deck';
-import {UserProfile} from '../users/User'
+import {PotentialPlaymate} from '../users/PotentialPlaymate'
 import { UserPawfileEdit } from "../users/UserPawfileEdit";
 
 
@@ -13,7 +13,7 @@ export default function ApplicationViews(){
     return(
         <Routes>
             {/* <Route path="/" element={<Deck/>} /> */}
-            <Route path="/UserProfile" element={<UserProfile/>} />
+            <Route path="/PotentialPlaymate" element={<PotentialPlaymate/>} />
             <Route path="/userEdit" element={<UserPawfileEdit/>} />
             
         </Routes>

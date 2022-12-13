@@ -4,7 +4,7 @@ import { Table } from "reactstrap";
 import { UserProfileItem } from "./UserProfileItem";
 
 
-export const UserProfile = () => {
+export const PotentialPlaymate = () => {
    const [userPawFiles, setUserPawfiles] = useState({});
 
     const getDogProfile = () => {
@@ -36,8 +36,3 @@ export const UserProfile = () => {
   );
 }
 
-// "id": 1,
-// "displayName": "Rufus",
-// "email": "rufus@throwAbone.com",
-// "pawFilePic": null,
-// "interests": "Fetch"

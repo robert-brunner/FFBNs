@@ -8,6 +8,8 @@ export const UserPawfileEdit = () => {
     const navigate = useNavigate ();
     const { id } = useParams (); ////local storage logged in user id instead of use params-  NEED TO FIX
 
+    //load local user into state- 
+
     const [userPawfile, setUserPawfile] = useState({
         id:0,
         DisplayName: "",
@@ -53,7 +55,7 @@ export const UserPawfileEdit = () => {
                 <Form onSubmit={handleSave}>
                     <FormGroup>
                         <Label for="DisplayName">PawFileName</Label>
-                        <Input type="text" name="DipslayName" required value={userPawfile.DisplayName}
+                        <Input type="text" name="DisplayName" required value={userPawfile.DisplayName}
                         onChange={(e) => {
                             const PawFileCopy = { ...userPawfile };
                             PawFileCopy.DisplayName = e.target.value;
@@ -102,3 +104,8 @@ export const UserPawfileEdit = () => {
 
 }
 // you need a way of pulling in individual user profiles. you only have get@all and get@random- get by email is next
+
+
+
+
+//export const getCurrentUserId = () => JSON.parse(localStorage.getItem('userProfile')).id;

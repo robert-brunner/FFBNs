@@ -65,8 +65,37 @@ export const GetUllPawFiles = () => {
     .then((res) => res.json())
 };
 
+export const getCurrentUserId = () => JSON.parse(localStorage.getItem('UserProfile')).id;
 
-  // export const getAll = () => {
-  //   return fetch(`${apiUrl}/Post`)
-  //     .then((res) => res.json())
-  // };
+
+/* 
+
+THE PROBLEM-
+You have no way of identifying the current logged in user.  You are confusing yourself trying to sort thru all this hubub-  You need to pull the user from LOCAL STORAGE- How do you do that? 
+
+
+You could use this local storage command on line 68 but the problem is the the link references a method that gets a random user instead of the current one.   
+You need to either go change the names so you aren't confused or- think of another way to do this.  
+
+
+My code is a mess- what do you do when you create a new method
+-- Back End --
+
+1.) ...Controller 
+    [Http] NewCommand
+    public IActionResult NewCommand(x,y) 
+
+2.) ...Repository 
+    public NewCommand(x,y)
+
+3.) I...Repository
+    NewCommand(x,y)
+
+
+---Front End---
+
+1.) ...Manager ---fetch call
+2.) Components>Users>ViewList
+3.) Application Views
+
+*/
