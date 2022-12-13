@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, FormGroup, Label, Input, Form, } from "reactstrap";
-import { UpdateDog, getCurrentUser} from "../../managers/UserProfileManager";
+import { UpdateDog, getCurrentUser,getUserById} from "../../managers/UserProfileManager";
 
 
 export const UserPawfileEdit = () => {
@@ -9,23 +9,34 @@ export const UserPawfileEdit = () => {
     const { id } = useParams (); ////local storage logged in user id instead of use params-  NEED TO FIX
 
     //load local user into state- 
+// console.log(getCurrentUser)
+    
+  const localUserObject = localStorage.getItem("userProfile")
+  console.log(localUserObject)
+  const CurrentUserObject = JSON.parse(localUserObject)
+  const CurrentUserId = CurrentUserObject.id;
 
     const [userPawfile, setUserPawfile] = useState({
         id:0,
         DisplayName: "",
         Email: "",
         Avatar: undefined,
-        Interests: undefined,
+        Interests: undefined
+
 
     });
 
+
+   
+
     const getSingleUser = () => {
-        UpdateDog(getCurrentUser).then(p =>{
+        UpdateDog(CurrentUserId).then(p =>{
             setUserPawfile(p);
         })
     };
     useEffect(()=>{
-        getSingleUser();
+        getUserById(CurrentUserId)
+        .then(r=>setUserPawfile(r))
     }, []);
 
     const handleSave = (e) => {
@@ -39,11 +50,11 @@ export const UserPawfileEdit = () => {
             Interests: userPawfile.Interests,
         };
         console.log(editedUserPawFile)
-        navigate("/UserProfile");
+        navigate("/CurrentUserPawfile");
     };
     const handleCancel = (e) => {
         e.preventDefault()
-        navigate("/UserProfile")
+        navigate("/CurrentUserPawfile")
     };
 
     return (<>
@@ -55,10 +66,10 @@ export const UserPawfileEdit = () => {
                 <Form onSubmit={handleSave}>
                     <FormGroup>
                         <Label for="DisplayName">PawFileName</Label>
-                        <Input type="text" name="DisplayName" required value={userPawfile.DisplayName}
+                        <Input type="text" name="DisplayName" value={userPawfile.displayName}
                         onChange={(e) => {
                             const PawFileCopy = { ...userPawfile };
-                            PawFileCopy.DisplayName = e.target.value;
+                            PawFileCopy.displayName = e.target.value;
                             setUserPawfile(PawFileCopy);
                         }} />
                     </FormGroup>
@@ -68,28 +79,28 @@ export const UserPawfileEdit = () => {
                 <Form onSubmit={handleSave}>
                     <FormGroup>
                         <Label for="Email">Email</Label>
-                        <Input type="text" name="Email" required value={userPawfile.Email}
+                        <Input type="text" name="Email" required value={userPawfile.email}
                         onChange={(e) => {
                             const PawFileCopy = { ...userPawfile };
-                            PawFileCopy.Email = e.target.value;
+                            PawFileCopy.email = e.target.value;
                             setUserPawfile(PawFileCopy);
                         }} />
                     </FormGroup>
                     <FormGroup>
                         <Label for="Avatar">PawFile Picture</Label>
-                        <Input type="text" name="Avatar" required value={userPawfile.Avatar}
+                        <Input type="text" name="Avatar" required value={userPawfile.avatar}
                         onChange={(e) => {
                             const PawFileCopy = { ...userPawfile };
-                            PawFileCopy.Interests = e.target.value;
+                            PawFileCopy.avatar = e.target.value;
                             setUserPawfile(PawFileCopy);
                         }} />
                     </FormGroup>
                     <FormGroup>
                         <Label for="Interests">Interests</Label>
-                        <Input type="text" name="Interests" required value={userPawfile.Interests}
+                        <Input type="text" name="Interests" required value={userPawfile.interests}
                         onChange={(e) => {
                             const PawFileCopy = { ...userPawfile };
-                            PawFileCopy.Interests = e.target.value;
+                            PawFileCopy.interests = e.target.value;
                             setUserPawfile(PawFileCopy);
                         }} />
                     </FormGroup>

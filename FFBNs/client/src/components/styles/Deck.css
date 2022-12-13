@@ -1,9 +1,9 @@
-/* * {
+/* /* * {
   box-sizing: border-box;
 } */
 
 
-.MainBody {
+/* .MainBody {
   background: salmon;
   position: fixed;
   overflow: hidden;
@@ -62,7 +62,7 @@
   display:inline-block;
   width:290px;
   
-}
+} */
 
 /* button[aria-label="previous"],
 button[aria-label="next"] {
@@ -71,7 +71,7 @@ button[aria-label="next"] {
 } */
 
 
-.Interest {
+/* .Interest {
   opacity: .7;
   font-size: 1.35rem;
   top:-12px;
@@ -87,4 +87,4 @@ button[aria-label="next"] {
 .card {
   height: 500px !important;
   
-}
+} */ 

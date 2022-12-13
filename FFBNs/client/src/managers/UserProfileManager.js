@@ -35,12 +35,12 @@
 };
   
 //----------------------------------------
-//gets the current userProfile information
-export const getCurrentUser = () => {
-  const currentUser = localStorage.getItem("UserProfile");
+// //gets the current userProfile information
+// export const getCurrentUser = () => {
+//   const currentUser = localStorage.getItem("UserProfile");
 
-  return JSON.parse(currentUser);  //JSON.parse()  the local user object coming back from API to use properties of that object
-};
+//   return JSON.parse(currentUser);  //JSON.parse()  the local user object coming back from API to use properties of that object
+// };
 
 export const UpdateDog = (user) => {
    return fetch(`${apiUrl}/api/userProfile/${user.id}`, {
@@ -65,7 +65,17 @@ export const GetUllPawFiles = () => {
     .then((res) => res.json())
 };
 
-export const getCurrentUserId = () => JSON.parse(localStorage.getItem('UserProfile')).id;
+
+export const getUserById = (userId) => {
+  return fetch(`${apiUrl}/api/UserProfile/${userId}`)//http GET request or  `/api/userProfile`
+  .then((res) => res.json())
+};
+
+export const getCurrentUser = () => {
+  const currentUser = localStorage.getItem('userProfile');
+  const CurrentUserObject = JSON.parse(localStorage.getItem('userProfile').id)
+  return CurrentUserObject
+};
 
 
 /* 

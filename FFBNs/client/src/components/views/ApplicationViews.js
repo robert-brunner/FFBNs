@@ -4,7 +4,8 @@ import  {Login}  from "../auth/Login";
 import Register from "../auth/Register";
 // import Deck from '../swipes/Deck';
 import {PotentialPlaymate} from '../users/PotentialPlaymate'
-import { UserPawfileEdit } from "../users/UserPawfileEdit";
+import { UserPawfileEdit } from "../users/UserPawfileEdit"
+import { CurrentUserPawfile } from "../users/CurrentUserPawFile"
 
 
 
@@ -15,6 +16,7 @@ export default function ApplicationViews(){
             {/* <Route path="/" element={<Deck/>} /> */}
             <Route path="/PotentialPlaymate" element={<PotentialPlaymate/>} />
             <Route path="/userEdit" element={<UserPawfileEdit/>} />
+            <Route path="/CurrentUserPawfile" element={<CurrentUserPawfile/>} />
             
         </Routes>
     )

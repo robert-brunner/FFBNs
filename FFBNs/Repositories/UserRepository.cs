@@ -163,9 +163,45 @@ namespace FFBNs.Repositories
                     cmd.ExecuteNonQuery();
                     }
                 }
+
             }
+        //Get user profile by Id
+        public UserProfile GetById(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                          SELECT d.Id AS 'DogId', d.UserName, 
+                               d.Email, d.Avatar, d.Interests
+                          FROM [Dog] d
+                          WHERE Id = @Id";
+                    DbUtils.AddParameter(cmd, "@Id", id);
+                    var reader = cmd.ExecuteReader();
+
+                    UserProfile singleUserProfile = null;
+                    while (reader.Read())
+                    {
+                        singleUserProfile = (new UserProfile()
+                        {
+                            Id = id,
+                            DisplayName = DbUtils.GetString(reader, "UserName"),
+                            Email = DbUtils.GetString(reader, "Email"),
+                            PawFilePic = DbUtils.GetString(reader, "Avatar"),
+                            Interests = DbUtils.GetString(reader, "Interests")
+                        });
+                    }
+                    reader.Close();
+
+                    return singleUserProfile;
+                }
+            }
+
         }
     }
+}
 
 
         ////Get user profile by Id

@@ -82,7 +82,16 @@ namespace FFBNs.Controllers
             return NoContent();
         }
 
-
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var userProfile = _userRepository.GetById(id);
+            if (userProfile == null)
+            {
+                return NotFound();
+            }
+            return Ok(userProfile);
+        }
     }
 
 
