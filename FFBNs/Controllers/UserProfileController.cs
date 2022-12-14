@@ -92,6 +92,16 @@ namespace FFBNs.Controllers
             }
             return Ok(userProfile);
         }
+        //// PUT should insert like into specific SQL Profile
+        //[HttpPut("{id}")]
+        //public IActionResult Like(int id, UserProfile userProfile)
+        //{
+
+        //    _userRepository.Update(userProfile);
+        //    return NoContent();
+        //}
+        ////need to insert like into profile somehow
+
     }
 
 
