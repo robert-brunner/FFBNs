@@ -8,10 +8,10 @@ using System.Reflection.PortableExecutable;
 
 namespace FFBNs.Repositories
 {
-    public class SwipeRepository : BaseRepository
+    public class SwipeRepository : BaseRepository, ISwipeRepository
     {
-        public SwipeRepository : base(configuration) { }
-        public void Update(Swipe swipe)
+        public SwipeRepository(IConfiguration configuration) : base(configuration) { }
+        public void Like(Swipe swipe)
         {
             using (var conn = Connection)
             {

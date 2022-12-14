@@ -11,13 +11,19 @@ namespace FFBNs.Controllers
     [ApiController]
     public class SwipeController : ControllerBase
     {
+        private readonly Repositories.SwipeRepository _swipeRepository;
+        public SwipeController(ISwipeRepository swipeRepository)
+        {
+            //_userProfileRepository = userProfileRepository;
+            _swipeRepository = swipeRepository;
+        }
 
         //// PUT should insert like into specific SQL Profile
         [HttpPut("{id}")]
-        public IActionResult Like(int id, Swipe swipe)
+        public IActionResult React(int id, Swipe swipe)
         {
 
-            _swipeRepository.Update(swipe);
+            _swipeRepository.Like(swipe);
             return NoContent();
         }
         ////need to insert like into profile somehow
