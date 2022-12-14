@@ -50,9 +50,23 @@ export const UpdateDog = (user) => {
      },
      body: JSON.stringify(user),
    }) 
-   .then ((r)=> r.json())
        
  }
+
+ //ideally Like should put a Like on the User in SQL-C#
+ //Onclick should sendLike to the below method which in turn should add a value of "like" to Dog in SQL; 
+ // if both Dogs have a key of like than a match should be generated
+ export const Like = (user) => {
+   return fetch(`${apiUrl}/api/userProfile/${user.id}`, {
+     method: "PUT",
+     headers: {
+       "Content-Type": "application/json",
+     },
+     body: JSON.stringify(user),
+   }) 
+       
+ }
+
 
 
 //uses the Get UserProfile Fetch Command that returns a randomized sql query
@@ -76,6 +90,8 @@ export const getCurrentUser = () => {
   const CurrentUserObject = JSON.parse(localStorage.getItem('userProfile').id)
   return CurrentUserObject
 };
+
+
 
 
 /* 

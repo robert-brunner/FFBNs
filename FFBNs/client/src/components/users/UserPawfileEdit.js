@@ -18,10 +18,10 @@ export const UserPawfileEdit = () => {
 
     const [userPawfile, setUserPawfile] = useState({
         id:0,
-        DisplayName: "",
-        Email: "",
-        Avatar: undefined,
-        Interests: undefined
+        displayName: "",
+        email: "",
+        avatar: undefined,
+        interests: undefined
 
 
     });
@@ -29,11 +29,11 @@ export const UserPawfileEdit = () => {
 
    
 
-    const getSingleUser = () => {
-        UpdateDog(CurrentUserId).then(p =>{
-            setUserPawfile(p);
-        })
-    };
+    // const getSingleUser = () => {
+    //     UpdateDog(CurrentUserId).then(p =>{
+    //         setUserPawfile(p);
+    //     })
+    // };
     useEffect(()=>{
         getUserById(CurrentUserId)
         .then(r=>setUserPawfile(r))
@@ -44,13 +44,17 @@ export const UserPawfileEdit = () => {
 
         const editedUserPawFile = {
             id: userPawfile.id,
-            DisplayName: userPawfile.DisplayName,
-            Email: userPawfile.Email,
-            Avatar: userPawfile.Avatar,
-            Interests: userPawfile.Interests,
+            displayName: userPawfile.displayName,
+            email: userPawfile.email,
+            avatar: userPawfile.avatar,
+            interests: userPawfile.interests,
         };
         console.log(editedUserPawFile)
-        navigate("/CurrentUserPawfile");
+        UpdateDog(editedUserPawFile).then(() => {
+            // console.log("success!!!!!")
+            navigate("/");
+        })
+       
     };
     const handleCancel = (e) => {
         e.preventDefault()
@@ -65,21 +69,18 @@ export const UserPawfileEdit = () => {
             <div className="border mt-3 p-3">
                 <Form onSubmit={handleSave}>
                     <FormGroup>
-                        <Label for="DisplayName">PawFileName</Label>
-                        <Input type="text" name="DisplayName" value={userPawfile.displayName}
+                        <Label for="displayName">PawFileName</Label>
+                        <Input type="text" name="displayName" value={userPawfile.displayName}
                         onChange={(e) => {
                             const PawFileCopy = { ...userPawfile };
                             PawFileCopy.displayName = e.target.value;
                             setUserPawfile(PawFileCopy);
                         }} />
                     </FormGroup>
-                    <Button className="button mr-2">Save</Button>
-                    <Button onClick={handleCancel} className="button">Cancel</Button>
-                </Form>
-                <Form onSubmit={handleSave}>
+               
                     <FormGroup>
-                        <Label for="Email">Email</Label>
-                        <Input type="text" name="Email" required value={userPawfile.email}
+                        <Label for="email">Email</Label>
+                        <Input type="text" name="email" required value={userPawfile.email}
                         onChange={(e) => {
                             const PawFileCopy = { ...userPawfile };
                             PawFileCopy.email = e.target.value;
@@ -87,8 +88,8 @@ export const UserPawfileEdit = () => {
                         }} />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="Avatar">PawFile Picture</Label>
-                        <Input type="text" name="Avatar" required value={userPawfile.avatar}
+                        <Label for="avatar">PawFile Picture</Label>
+                        <Input type="text" name="avatar" required value={userPawfile.avatar}
                         onChange={(e) => {
                             const PawFileCopy = { ...userPawfile };
                             PawFileCopy.avatar = e.target.value;
@@ -96,8 +97,8 @@ export const UserPawfileEdit = () => {
                         }} />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="Interests">Interests</Label>
-                        <Input type="text" name="Interests" required value={userPawfile.interests}
+                        <Label for="interests">Interests</Label>
+                        <Input type="text" name="interests" required value={userPawfile.interests}
                         onChange={(e) => {
                             const PawFileCopy = { ...userPawfile };
                             PawFileCopy.interests = e.target.value;
