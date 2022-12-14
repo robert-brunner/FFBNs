@@ -23,22 +23,40 @@ export const PotentialPlaymate = () => {
         getDogProfile();
     }, []);
 
+    
+    
     const handleSaveNewSwipe = (event) => {
       event.preventDefault()
       const LikeToSendToAPI = {
-          DogId: CurrentUserId,
-          OtherDogId: userPawFiles.id,  
-          Like: (event.target.value === 'true')
+        DogId: CurrentUserId,
+        OtherDogId: userPawFiles.id,  
+        Like: (event.target.value === 'true')
       }
-      console.log(LikeToSendToAPI)
-  //     return (
-  //         addSwipe(LikeToSendToAPI)  // navigation correct?
-  //          .then((p)=> {
-  //             Navigate("/");
-  //          })
-  //     )
-  }
-
+      
+      console.log(LikeToSendToAPI);
+      // console.log(DislikeToSendToAPI);
+      return (
+        addSwipe(LikeToSendToAPI)  // navigation correct?
+        .then((p)=> {
+          Navigate("PotentialPlaymate");
+        })
+        )
+      }
+      const handleSaveNewDisSwipe = (event) => {
+        event.preventDefault()
+        const DisLikeToSendToAPI = {
+            DogId: CurrentUserId,
+            OtherDogId: userPawFiles.id,  
+            Like: (event.target.value === 'false')
+        }
+      return (
+        addSwipe(DisLikeToSendToAPI)  // navigation correct?
+        .then((p)=> {
+          Navigate("PotentialPlayMate");
+        })
+        )
+      }
+      
     return(
     <div className="m-5">
     <Table>
@@ -56,8 +74,9 @@ export const PotentialPlaymate = () => {
 
       <Button color="success" value={true} onClick={(e) => { 
         handleSaveNewSwipe(e)
-          console.log("1")}} >Like</Button>
-      <Button color="danger" value={false} onClick={(e) => { handleSaveNewSwipe(e)
+          console.log("1")
+          }} >Like</Button>
+      <Button color="danger" value={false} onClick={(e) => { handleSaveNewDisSwipe(e)
           console.log("2")}} >Dislike</Button>
       
       </tbody>

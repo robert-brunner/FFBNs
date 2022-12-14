@@ -19,16 +19,27 @@ namespace FFBNs.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                         UPDATE Swipe
-                           SET Like = @Like
-                         WHERE Id = @Id";
+                        INSERT INTO [Swipes] ([Like], DogId, OtherDogId)
+                        OUTPUT INSERTED.ID
+                        VALUES [@Like, @DogId, @OtherDogId]
+                        ";
 
                     DbUtils.AddParameter(cmd, "@Like", swipe.Like);
-                    DbUtils.AddParameter(cmd, "@Id", swipe.Id);
+                    DbUtils.AddParameter(cmd, "@DogId", swipe.DogId);
+                    DbUtils.AddParameter(cmd, "@OtherDogId", swipe.OtherDogId);
 
-                    cmd.ExecuteNonQuery();
+                    swipe.Id = (int)cmd.ExecuteScalar();
                 }
             }
         }
     }
-}
+}   //id of logged in user ID of other dog and wheather its a yes
+    // INSERT INTO Swipe- might just be select based on previous projects.
+
+//@"
+//                         INSERT INTO Swipe
+//                           SET Like = @Like
+//                         WHERE Id = @Id  === @Like and 
+//                        OtherDogId = @Like ";
+
+//                        WHERE Id = @Id

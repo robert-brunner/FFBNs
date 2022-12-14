@@ -1,8 +1,10 @@
 const apiUrl = "https://localhost:5001";
 
 
-export const addSwipe = (singleSwipe) => { //http Swipe request
-    return fetch(`${apiUrl}/api/PotentialPlaymate`, {// Potential playate needs to be set to the endpoint on api url. Current is WRONG
+
+//http Swipe request
+export const addSwipe = (singleSwipe) => { 
+    return fetch(`${apiUrl}/api/Swipe/${singleSwipe.id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
