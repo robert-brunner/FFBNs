@@ -20,7 +20,10 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
   return (
     <div className="Header">
       <Navbar color="light" light expand="md">
-        <NavbarBrand tag={RRNavLink} to="/">Paw-Or-Not</NavbarBrand>
+        <NavbarBrand tag={RRNavLink} to="/PotentialPlaymate">Paw-Or-Not</NavbarBrand>
+        <NavLink tag={RRNavLink} to="/userEdit" className="nav-link">Edit Pawfile</NavLink>
+        
+        <NavLink tag={RRNavLink} to="/CurrentUserPawfile" className="nav-link">User PawFile</NavLink>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           

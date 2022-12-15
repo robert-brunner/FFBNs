@@ -33,7 +33,9 @@ namespace FFBNs.Repositories
             }
         }
     }
-}   //id of logged in user ID of other dog and wheather its a yes
+}   
+
+//id of logged in user ID of other dog and wheather its a yes
     // INSERT INTO Swipe- might just be select based on previous projects.
 
 //@"

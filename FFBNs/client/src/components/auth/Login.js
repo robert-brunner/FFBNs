@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useNavigate, Link } from "react-router-dom";
 import { login } from "../../managers/UserProfileManager";
+import { PotentialPlaymate } from "../users/PotentialPlaymate";
 
 export const  Login = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ export const  Login = ({ setIsLoggedIn }) => {
         // else 
         if (r) {  //if a user is active hit here and navigate into application
           setIsLoggedIn(true)
-          navigate('/')
+          navigate('/PotentialPlaymate')
         }
         else { //invalid Email or password will hit here
           alert("Invalid Email")
