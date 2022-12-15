@@ -13,6 +13,10 @@ export const addSwipe = (singleSwipe) => {
     });
   };
 
-
+  export const UndoLike = (id) => {
+    return fetch(`${apiUrl}/api/Swipe/${id}`, {
+        method: "DELETE"
+    })
+}
 
  

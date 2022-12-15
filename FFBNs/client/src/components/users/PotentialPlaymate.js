@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { getRandomUser, Like} from "../../managers/UserProfileManager";
 import { Table, Button } from "reactstrap";
 import { UserProfileItem } from "./UserProfileItem";
-import { addSwipe } from "../../managers/SwipeManager";
+import { addSwipe, Undo, UndoLike } from "../../managers/SwipeManager";
 import { Navigate } from "react-router-dom";
 
 
 export const PotentialPlaymate = () => {
    const [userPawFiles, setUserPawfiles] = useState({});
+
+    const [previousDog, setPreviousDog] = useState({});
 
     const localUserObject = localStorage.getItem("userProfile")
     console.log(localUserObject)
@@ -23,10 +25,9 @@ export const PotentialPlaymate = () => {
         getDogProfile();
     }, []);
 
-    
-    //Like
     const handleSaveNewSwipe = (event) => {
       event.preventDefault()
+      setPreviousDog(userPawFiles.id)
       const LikeToSendToAPI = {
         DogId: CurrentUserId,
         OtherDogId: userPawFiles.id,  
@@ -45,6 +46,8 @@ export const PotentialPlaymate = () => {
       //Dislike
       const handleSaveNewDisSwipe = (event) => {
         event.preventDefault()
+        const currentId = userPawFiles.id
+        setPreviousDog(currentId)
         const DisLikeToSendToAPI = {
             DogId: CurrentUserId,
             OtherDogId: userPawFiles.id,  
@@ -57,20 +60,14 @@ export const PotentialPlaymate = () => {
         })
         )
       }
-      //undo- 3rd button - instead of post request-eventlistener -send delete request
-      const handleSaveNewUnSwipe = (event) => {
-        event.preventDefault()
-        const DisLikeToSendToAPI = {
-            DogId: CurrentUserId,
-            OtherDogId: userPawFiles.id,  
-            Like: (false)
-        }
-      return (
-        addSwipe(DisLikeToSendToAPI)  // navigation correct?
-        .then((p)=> {
+  // assuming I have this right- this should find the previous dog value and delete the like that was added to it from the database in the Swipes Table. 
+  //Delete Swipe is called in the button, Undo Like is the fetch call; previousDog.id should be pulling the id of the former dog that was just barely swiped on whether its like or dislike. 
+      const DeleteSwipe = () => {
+        UndoLike(previousDog)
+        .then(() =>{
           getDogProfile()
+          console.log(previousDog)
         })
-        )
       }
       
     return(
@@ -88,8 +85,8 @@ export const PotentialPlaymate = () => {
             <UserProfileItem key={userPawFiles.id} user={userPawFiles} setUserPawfile={setUserPawfiles} />
           }
 
-      <Button color="warning" value={false} onClick={(e) => { handleSaveNewUnSwipe(e)
-        console.log("3")}} >Undo</Button>
+      <Button color="warning" value={false} onClick={(e) => { DeleteSwipe(e)
+        console.log("3")}} >UnFetch</Button>
       <Button color="danger" value={false} onClick={(e) => { handleSaveNewDisSwipe(e)
         console.log("2")}} >Scaredey-Cat</Button>
       <Button color="success" value={true} onClick={(e) => { 
@@ -103,3 +100,19 @@ export const PotentialPlaymate = () => {
   );
 }
 
+
+        // //undo- 3rd button - instead of post request-eventlistener -send delete request
+        // const handleSaveNewUnSwipe = () => {
+        //   UndoSwipe()
+        //   const UndoSwipe = {
+        //       DogId: CurrentUserId,
+        //       OtherDogId: userPawFiles.id,  
+        //       Like: ()
+        //   }
+        // return (
+        //   UndoLike(UndoSwipe)  // navigation correct?
+        //   .then((p)=> {
+        //     getDogProfile()
+        //   })
+        //   )
+        // }

@@ -28,6 +28,13 @@ namespace FFBNs.Controllers
         }
         ////need to insert like into profile somehow
 
+        // DELETE api/<UserProfileController>/5
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _swipeRepository.Delete(id);
+            return NoContent();
+        }
     }
 
 }
