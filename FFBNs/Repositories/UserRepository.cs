@@ -13,18 +13,68 @@ namespace FFBNs.Repositories
         public UserRepository(IConfiguration configuration) : base(configuration) { }
 
         //Get all user profiles- good model but likely unused 
-        public List<UserProfile> GetAll()
+        //public List<UserProfile> GetAllMatches()
+        //{
+        //    using (var conn = Connection)
+        //    {
+        //        conn.Open();
+        //        using (var cmd = conn.CreateCommand())
+        //        {
+        //            cmd.CommandText = @"SELECT do.Id AS 'Dog You Liked Id', do.UserName AS 'Dog You Liked Name'  
+        //                           FROM Dog d 
+        //                     Right JOIN Swipes ON
+        //                                d.Id = Swipes.DogId 
+        //                           JOIN Dog do on Swipes.OtherDogId = do.Id 
+        //                          WHERE Swipes.DogId = 1 
+        //               INTERSECT SELECT d.Id AS     
+        //                                'DogWho Liked You', d.UserName AS 'Dog Who Liked You Name'  
+        //                           FROM Dog d 
+        //                     Right JOIN Swipes ON
+        //                                d.Id = Swipes.DogId 
+        //                           JOIN Dog do on Swipes.OtherDogId = do.Id 
+        //                          WHERE Swipes.OtherDogId = 1";
+
+        //            var reader = cmd.ExecuteReader();
+
+        //            var userProfiles = new List<UserProfile>();
+        //            while (reader.Read())
+        //            {
+        //                userProfiles.Add(new UserProfile()
+        //                {
+        //                    Id = DbUtils.GetInt(reader, "DogId"),
+        //                    DisplayName = DbUtils.GetString(reader, "UserName"),
+        //                    OtherDogId = DbUtils.GetInt(reader, "OtherDogId"),
+        //                }); ;
+        //            }
+
+        //            reader.Close();
+
+        //            return userProfiles;
+        //        }
+        //    }
+        //}
+
+
+        public List<UserProfile> GetAllMatches()
         {
             using (var conn = Connection)
             {
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"
-                          SELECT d.Id AS 'DogId', d.UserName, 
-                               d.Email, d.Avatar, d.Interests
-                          FROM [Dog] d
-                           ";
+                    cmd.CommandText = @"SELECT do.Id AS 'Dog You Liked Id', do.UserName AS 'Dog You Liked Name'  
+                                   FROM Dog d 
+                             Right JOIN Swipes ON
+                                        d.Id = Swipes.DogId 
+                                   JOIN Dog do on Swipes.OtherDogId = do.Id 
+                                  WHERE Swipes.DogId = 1 
+                       INTERSECT SELECT d.Id AS     
+                                        'DogWho Liked You', d.UserName AS 'Dog Who Liked You Name'  
+                                   FROM Dog d 
+                             Right JOIN Swipes ON
+                                        d.Id = Swipes.DogId 
+                                   JOIN Dog do on Swipes.OtherDogId = do.Id 
+                                  WHERE Swipes.OtherDogId = 1";
 
                     var reader = cmd.ExecuteReader();
 
@@ -33,23 +83,20 @@ namespace FFBNs.Repositories
                     {
                         userProfiles.Add(new UserProfile()
                         {
-                            Id = DbUtils.GetInt(reader, "DogId"),
-                            DisplayName = DbUtils.GetString(reader, "UserName"),
-                            Email = DbUtils.GetString(reader, "Email"),
-                            PawFilePic = DbUtils.GetString(reader, "Avatar"),
-                            Interests = DbUtils.GetString(reader, "Interests"),
-                        }); ;
+                            Id = DbUtils.GetInt(reader, "Dog You Liked Id"),
+                            DisplayName = DbUtils.GetString(reader, "Dog You Liked Name"),
+
+
+                        });
                     }
 
                     reader.Close();
 
                     return userProfiles;
                 }
+
             }
         }
-
-
-
 
         //Get user profile by Id- Randomly generates
         public UserProfile GetAtRandom()

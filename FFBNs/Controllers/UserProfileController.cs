@@ -18,26 +18,16 @@ namespace FFBNs.Controllers
             _userRepository = userRepository;
         }
 
-        //GET: api/<UserProfileController>
+        //GET: List the PawFiles that are matched with 
         [HttpGet("GetAll")]
-        public IActionResult Get()
+        public IActionResult GetAllMatches()
         {
-            return Ok(_userRepository.GetAll());
+            return Ok(_userRepository.GetAllMatches());
         }
-        ////getById
-        //[HttpGet("{id}")]
-        //public IActionResult Get(int id)
-        //{
-        //    var userProfile = _userRepository.GetById(id);
-        //    if (userProfile == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return Ok(userProfile);
-        //}
 
 
 
+        // generates a random profile from the database
         [HttpGet]
         public IActionResult GetAtRandom()
         {
@@ -48,7 +38,7 @@ namespace FFBNs.Controllers
             }
             return Ok(userProfile);
         }
-        //Hopefully this creates a user Pawfile
+        //Creates a User PawFile
         [HttpPost()]
         public IActionResult Add( UserProfile userProfile)
         {
@@ -62,6 +52,7 @@ namespace FFBNs.Controllers
             return Ok(userProfile);
 
         }
+
         [HttpGet("GetByEmail")]
         public IActionResult GetByEmail(string email)
         {
@@ -73,7 +64,7 @@ namespace FFBNs.Controllers
             }
             return Ok(user);
         }
-        // PUT api/<UserProfileController>/5
+        // Edit a UserPawFile
         [HttpPut("{id}")]
         public IActionResult Put(int id, UserProfile userProfile)
         {
@@ -81,7 +72,7 @@ namespace FFBNs.Controllers
             _userRepository.Update(userProfile);
             return NoContent();
         }
-
+        //Gets a PawFile by the Id associated with it. 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
