@@ -24,7 +24,7 @@ export const PotentialPlaymate = () => {
     }, []);
 
     
-    
+    //Like
     const handleSaveNewSwipe = (event) => {
       event.preventDefault()
       const LikeToSendToAPI = {
@@ -38,21 +38,37 @@ export const PotentialPlaymate = () => {
       return (
         addSwipe(LikeToSendToAPI)  // navigation correct?
         .then((p)=> {
-          Navigate("PotentialPlaymate");
+          getDogProfile()
         })
         )
       }
+      //Dislike
       const handleSaveNewDisSwipe = (event) => {
         event.preventDefault()
         const DisLikeToSendToAPI = {
             DogId: CurrentUserId,
             OtherDogId: userPawFiles.id,  
-            Like: (event.target.value === 'false')
+            Like: (false)
         }
       return (
         addSwipe(DisLikeToSendToAPI)  // navigation correct?
         .then((p)=> {
-          Navigate("PotentialPlayMate");
+          getDogProfile()
+        })
+        )
+      }
+      //undo- 3rd button - instead of post request-eventlistener -send delete request
+      const handleSaveNewUnSwipe = (event) => {
+        event.preventDefault()
+        const DisLikeToSendToAPI = {
+            DogId: CurrentUserId,
+            OtherDogId: userPawFiles.id,  
+            Like: (false)
+        }
+      return (
+        addSwipe(DisLikeToSendToAPI)  // navigation correct?
+        .then((p)=> {
+          getDogProfile()
         })
         )
       }
@@ -72,12 +88,14 @@ export const PotentialPlaymate = () => {
             <UserProfileItem key={userPawFiles.id} user={userPawFiles} setUserPawfile={setUserPawfiles} />
           }
 
+      <Button color="warning" value={false} onClick={(e) => { handleSaveNewUnSwipe(e)
+        console.log("3")}} >Undo</Button>
+      <Button color="danger" value={false} onClick={(e) => { handleSaveNewDisSwipe(e)
+        console.log("2")}} >Scaredey-Cat</Button>
       <Button color="success" value={true} onClick={(e) => { 
         handleSaveNewSwipe(e)
           console.log("1")
-          }} >Like</Button>
-      <Button color="danger" value={false} onClick={(e) => { handleSaveNewDisSwipe(e)
-          console.log("2")}} >Dislike</Button>
+          }} >Go-Fetch!</Button>
       
       </tbody>
     </Table>

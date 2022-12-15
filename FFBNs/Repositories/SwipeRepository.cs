@@ -21,7 +21,7 @@ namespace FFBNs.Repositories
                     cmd.CommandText = @"
                         INSERT INTO [Swipes] ([Like], DogId, OtherDogId)
                         OUTPUT INSERTED.ID
-                        VALUES [@Like, @DogId, @OtherDogId]
+                        VALUES (@Like, @DogId, @OtherDogId)
                         ";
 
                     DbUtils.AddParameter(cmd, "@Like", swipe.Like);

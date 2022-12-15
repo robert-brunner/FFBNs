@@ -20,7 +20,7 @@ namespace FFBNs.Controllers
 
         //// PUT should insert like into specific SQL Profile
         [HttpPost]
-        public IActionResult React(Swipe swipe)
+        public IActionResult Post(Swipe swipe)
         {
 
             _swipeRepository.Like(swipe);

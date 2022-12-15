@@ -4,7 +4,7 @@ const apiUrl = "https://localhost:5001";
 
 //http Swipe request
 export const addSwipe = (singleSwipe) => { 
-    return fetch(`${apiUrl}/api/Swipe/${singleSwipe.id}`, {
+    return fetch(`${apiUrl}/api/Swipe/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -12,3 +12,7 @@ export const addSwipe = (singleSwipe) => {
       body: JSON.stringify(singleSwipe),
     });
   };
+
+
+
+ 
