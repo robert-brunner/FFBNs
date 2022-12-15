@@ -6,6 +6,7 @@ import Register from "../auth/Register";
 import {PotentialPlaymate} from '../users/PotentialPlaymate'
 import { UserPawfileEdit } from "../users/UserPawfileEdit"
 import { CurrentUserPawfile } from "../users/CurrentUserPawFile"
+import { Match } from "../matches/UserMatch"
 
 
 
@@ -14,6 +15,7 @@ export default function ApplicationViews(){
     return(
         <Routes>
             {/* <Route path="/" element={<Deck/>} /> */}
+            <Route path="/UserMatch" element={<Match/>} />
             <Route path="/PotentialPlaymate" element={<PotentialPlaymate/>} />
             <Route path="/userEdit" element={<UserPawfileEdit/>} />
             <Route path="/CurrentUserPawfile" element={<CurrentUserPawfile/>} />

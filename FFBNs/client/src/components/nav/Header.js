@@ -21,9 +21,11 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
     <div className="Header">
       <Navbar color="light" light expand="md">
         <NavbarBrand tag={RRNavLink} to="/PotentialPlaymate">Paw-Or-Not</NavbarBrand>
-        <NavLink tag={RRNavLink} to="/userEdit" className="nav-link">Edit Pawfile</NavLink>
+        <NavLink tag={RRNavLink} to="/userEdit" className="nav-link p-2">Edit Pawfile</NavLink>
+        <NavLink tag={RRNavLink} to="/UserMatch" className="nav-link p-2">Matches</NavLink>
+
         
-        <NavLink tag={RRNavLink} to="/CurrentUserPawfile" className="nav-link">User PawFile</NavLink>
+        <NavLink tag={RRNavLink} to="/CurrentUserPawfile" className="nav-link p-2">User PawFile</NavLink>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           
@@ -41,7 +43,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
             {isLoggedIn &&
               <>
                 <NavItem> 
-                  <a aria-current="page" className="nav-link"
+                  <a aria-current="page" className="nav-link p-2"
                     style={{ cursor: "pointer" }} onClick={() => {
                       logout()
                       setIsLoggedIn(false)
