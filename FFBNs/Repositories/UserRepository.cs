@@ -177,7 +177,9 @@ namespace FFBNs.Repositories
                         {
                             Id = DbUtils.GetInt(reader, "DogId"),
                             DisplayName = DbUtils.GetString(reader, "Username"),
-                            Email = DbUtils.GetString(reader, "Email")
+                            Email = DbUtils.GetString(reader, "Email"),
+                            Interests = DbUtils.GetString(reader, "Interests"),
+                            PawFilePic = DbUtils.GetString(reader, "Avatar")
                         };
                     }
                     reader.Close();

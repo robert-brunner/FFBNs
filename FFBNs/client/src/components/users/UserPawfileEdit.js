@@ -26,14 +26,6 @@ export const UserPawfileEdit = () => {
 
     });
 
-
-   
-
-    // const getSingleUser = () => {
-    //     UpdateDog(CurrentUserId).then(p =>{
-    //         setUserPawfile(p);
-    //     })
-    // };
     useEffect(()=>{
         getUserById(CurrentUserId)
         .then(r=>setUserPawfile(r))

@@ -1,50 +1,38 @@
-// import React, { useEffect, useState } from "react";
-// import { getCurrentUser, getUserById } from "../../managers/UserProfileManager"
-// import { Table, Button, FormGroup, Label, Input, Form, } from "reactstrap";
+import React, { useEffect, useState } from "react";
+import { Table } from "reactstrap";
+import { UserProfileItem } from "./UserProfileItem";
+import UserProfilePictures from "./UserProfilePictures";
+
+export const CurrentUserPawfile = () => {
+  const [userPawFiles, setUserPawfiles] = useState({});
+
+  // Retrieve the logged in user's details from local storage
+  const localUserObject = localStorage.getItem("userProfile")
+  const currentUserObject = JSON.parse(localUserObject)
+  
+  return(
+      <div className="m-5">
+      <Table>
+        <thead>
+          <tr>
+            <th>{currentUserObject.displayName}</th>
+            <th>{currentUserObject.interests}</th>
+            <th>{currentUserObject.pawFilePic}</th>
+            <th><UserProfilePictures/></th>
+            <th>{currentUserObject.email}</th>
+          </tr>
+        </thead>
+        <tbody>
+            {
+                <UserProfileItem key={currentUserObject.id} user={currentUserObject} setUserPawfile={setUserPawfiles} />
+            }
+        </tbody>
+      </Table>
+    </div>
+  );
+}
 
 
-
-// export const CurrentUserPawfile = () => {
-
-
-//     const localUserObject = localStorage.getItem("userProfile")
-//     const CurrentUserObject = JSON.parse(localUserObject)
-//     const CurrentUserId = CurrentUserObject.id;
-
-//     const [userPawfile, setUserPawfile] = useState({
-//         id:0,
-//         DisplayName: "",
-//         Email: "",
-//         Avatar: undefined,
-//         Interests: undefined
-//         });
-
-//     const getUserProfile = () =>{
-//     CurrentDog(CurrentUserId)
-//     .then(allUsers => setUserPawfile(allUsers))
-//         }
-
-//     useEffect(() => {
-//         getUserProfile();
-//     }, []); 
-    
-//   return (
-//       <div className="m-5">
-//     <Table>
-//       <thead>
-//         <tr>
-//           <th>DisplayName</th>
-//           <Label for="DisplayName" value={userPawfile.displayName}>PawFileName</Label>
-          
-//         </tr>
-//       </thead>
-//       <tbody>
-        
-//       </tbody>
-//     </Table>
-//     </div>
-//   );
-// }
 
 
 // // 1.) ...Controller 
