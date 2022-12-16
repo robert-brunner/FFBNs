@@ -1,3 +1,4 @@
+using FFBNs.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,8 @@ namespace FFBNs
         {
 
             services.AddControllers();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<ISwipeRepository, SwipeRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FFBNs", Version = "v1" });
@@ -43,6 +46,12 @@ namespace FFBNs
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FFBNs v1"));
             }
+            app.UseCors(options =>
+            {
+                options.AllowAnyOrigin();
+                options.AllowAnyMethod();
+                options.AllowAnyHeader();
+            });
 
             app.UseHttpsRedirection();
 

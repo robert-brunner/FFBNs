@@ -1,0 +1,59 @@
+INSERT INTO [Dog] (Username, Email, Interests ) values ('Rufus', 'rufus@throwAbone.com', 'Fetch');
+INSERT INTO [Dog] (Username, Email, Interests ) values ('Chewy', 'chewsALOT@missingfurniture.com', 'ChewToys');
+INSERT INTO [Dog] (Username, Email, Interests ) values ('Etta', 'tea_party@brunch.com', 'Fetch');
+INSERT INTO [Dog] (Username, Email, Interests ) values ('Darlene', 'runlikewind@wideopenspaces.com', 'Running')
+
+
+
+
+
+get single dog- make it random
+
+i=0 i+++
+
+//reaction id -1 like
+//reaction id -2 dislike
+
+
+USE [master]
+
+IF db_id('FFBNs') IS NULl
+  CREATE DATABASE [FFBNs]
+GO
+
+USE [FFBNs]
+GO
+
+CREATE TABLE [Dog] (
+  [id] int PRIMARY KEY IDENTITY,
+  [Username] nvarchar(255),
+  [Email] nvarchar(255),
+  [Avatar] nvarchar(255),
+  [Interests] nvarchar(255)
+)
+GO
+
+CREATE TABLE [Messages] (
+  [id] int PRIMARY KEY IDENTITY,
+  [DogId] int,
+  [Content] nvarchar(255),
+  [MsgDate] nvarchar(255)
+)
+GO
+
+CREATE TABLE [Swipes] (
+  [id] int PRIMARY KEY IDENTITY,
+  [DogId] int,
+  [OtherDogId] int,
+  [Like] bit
+)
+GO
+
+ALTER TABLE [Messages] ADD FOREIGN KEY ([DogId]) REFERENCES [Dog] ([id])
+GO
+
+ALTER TABLE [Swipes] ADD FOREIGN KEY ([DogId]) REFERENCES [Dog] ([id])
+GO
+
+ALTER TABLE [Swipes] ADD FOREIGN KEY ([OtherDogId]) REFERENCES [Dog] ([id])
+GO
