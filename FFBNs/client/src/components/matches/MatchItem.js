@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const UserProfileItem = ({ user }) => {
+export const MatchItem = ({ user }) => {
     console.log(user)
     return (
 
@@ -14,7 +14,7 @@ export const UserProfileItem = ({ user }) => {
                 
             </td>
             <td>
-                {user.userProfile?.displayName}
+                {user.displayName}
             </td>
         </tr>
 

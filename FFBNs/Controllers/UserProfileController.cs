@@ -19,7 +19,7 @@ namespace FFBNs.Controllers
         }
 
         //GET: List the PawFiles that are matched with 
-        [HttpGet("GetAll")]
+        [HttpGet("GetAllMatches")]
         public IActionResult GetAllMatches()
         {
             return Ok(_userRepository.GetAllMatches());
@@ -38,6 +38,7 @@ namespace FFBNs.Controllers
             }
             return Ok(userProfile);
         }
+
         //Creates a User PawFile
         [HttpPost()]
         public IActionResult Add( UserProfile userProfile)
