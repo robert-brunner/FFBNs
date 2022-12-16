@@ -6,7 +6,7 @@ import React, {useState} from "react";
 function UserProfilePictures() {
 
     const uploadImage = (files) => {
-        console.log(files [0])
+        console.log(files [0]);
     }
     return (
     <>
