@@ -1,5 +1,7 @@
+import UserProfilePictures from "../components/users/UserProfilePictures";
+import Axios from "axios";
 
-  const apiUrl = "https://localhost:5001";
+const apiUrl = "https://localhost:5001";
 //checks the database for a user matching the current email. Logs in if found. 
   export const login = (userObject) => {
     return fetch(`${apiUrl}/api/UserProfile/GetByEmail?email=${userObject.Email}`)
@@ -34,6 +36,20 @@
     });
 };
   
+
+//     const publicId = response.data.public_id = () => {
+//         return fetch (`${apiUrl}/api/UserProfile`, {
+//             method: "POST",
+//             headers: {
+//           "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(userObject),
+//   })
+//       .then((response) => response.json())
+//       .then((savedUserProfile) => {
+//           localStorage.setItem("userProfile", JSON.stringify(savedUserProfile))
+//       });
+//   };
 //----------------------------------------
 // //gets the current userProfile information
 // export const getCurrentUser = () => {
@@ -41,6 +57,36 @@
 
 //   return JSON.parse(currentUser);  //JSON.parse()  the local user object coming back from API to use properties of that object
 // };
+
+
+// I need to affix publicID from UploadProfilePictures to the update UserPawFile so I can store the hash data from my picture in the database- this is the method that I think I need to use.  
+
+// Function that sends a POST request with the public id string to the server
+// function sendPublicIdToSQL(publicId, userId) {
+//   Axios.post(`/server/endpoint/${userId}`, {
+//     publicId: publicId
+//   })
+//   .then(response => {
+//     // Do something with the response
+//   })
+//   .catch(error => {
+//     // Handle the error
+//   });
+// }
+
+// export const UpdateDog = (user) => {
+//   // Call the sendPublicIdToSQL function and pass the public id and user id as arguments
+//   sendPublicIdToSQL(user.profilePicture, user.id);
+
+//   return fetch(`${apiUrl}/api/userProfile/${user.id}`, {
+//     method: "PUT",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(user),
+//   }); 
+// }
+
 
 export const UpdateDog = (user) => {
    return fetch(`${apiUrl}/api/userProfile/${user.id}`, {

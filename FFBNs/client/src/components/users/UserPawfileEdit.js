@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, FormGroup, Label, Input, Form, } from "reactstrap";
 import { UpdateDog, getCurrentUser,getUserById} from "../../managers/UserProfileManager";
+import UserProfilePictures  from "./UserProfilePictures";
 
 
 export const UserPawfileEdit = () => {
@@ -20,7 +21,7 @@ export const UserPawfileEdit = () => {
         id:0,
         displayName: "",
         email: "",
-        avatar: undefined,
+        avatar: "",
         interests: undefined
 
 
@@ -81,12 +82,7 @@ export const UserPawfileEdit = () => {
                     </FormGroup>
                     <FormGroup>
                         <Label for="avatar">PawFile Picture</Label>
-                        <Input type="text" name="avatar" required value={userPawfile.avatar}
-                        onChange={(e) => {
-                            const PawFileCopy = { ...userPawfile };
-                            PawFileCopy.avatar = e.target.value;
-                            setUserPawfile(PawFileCopy);
-                        }} />
+                        <UserProfilePictures sendPublicIdToSQL={(publicId) => setUserPawfile({ ...userPawfile, avatar: publicId })} />
                     </FormGroup>
                     <FormGroup>
                         <Label for="interests">Interests</Label>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "reactstrap";
 import { UserProfileItem } from "./UserProfileItem";
-import UserProfilePictures from "./UserProfilePictures";
+// import UserProfilePictures from "./UserProfilePictures";
 
 export const CurrentUserPawfile = () => {
   const [userPawFiles, setUserPawfiles] = useState({});
@@ -18,7 +18,7 @@ export const CurrentUserPawfile = () => {
             <th>{currentUserObject.displayName}</th>
             <th>{currentUserObject.interests}</th>
             <th>{currentUserObject.pawFilePic}</th>
-            <th><UserProfilePictures/></th>
+            {/* <th><UserProfilePictures/></th> */}
             <th>{currentUserObject.email}</th>
           </tr>
         </thead>
