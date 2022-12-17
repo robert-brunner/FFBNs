@@ -53,7 +53,7 @@ export const UserPawfileEdit = () => {
         e.preventDefault()
         navigate("/CurrentUserPawfile")
     };
-
+//i need to be able to upload the pictures on the edit page. and save the value from the uploaded picture in the string attached to the sql fetch for PUT
     return (<>
         
         
@@ -81,7 +81,7 @@ export const UserPawfileEdit = () => {
                         }} />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="avatar">PawFile Picture</Label>
+                        <Label for="avatar">PawFile Picture</Label> 
                         <UserProfilePictures sendPublicIdToSQL={(publicId) => setUserPawfile({ ...userPawfile, avatar: publicId })} />
                     </FormGroup>
                     <FormGroup>
