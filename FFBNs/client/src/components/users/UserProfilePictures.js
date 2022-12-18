@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { Image } from "cloudinary-react";
 
-const localUserObject = localStorage.getItem("userProfile")
-console.log(localUserObject)
-const CurrentUserObject = JSON.parse(localUserObject)
+
 const apiUrl = "https://localhost:5001";
 
 export const getImagesByUserId = (id) => {
@@ -23,9 +21,9 @@ export const AddImageUrl = (imageUrlObject) => {
     });
 };
 
-function UserProfilePictures({ register, userObject, sendPublicIdToSQL, setPublicId, publicId }) { // Accept the register and userObject values as arguments
+function UserProfilePictures({ register, userObject, sendPublicIdToSQL, setPublicId, publicId, localUserObject }) { // Accept the register and userObject values as arguments
   const [imageSelected, setImageSelected] = useState("");
-  
+  const CurrentUserObject = JSON.parse(localUserObject)
 
   const uploadImage = () => {
     const formData = new FormData();
@@ -40,6 +38,7 @@ function UserProfilePictures({ register, userObject, sendPublicIdToSQL, setPubli
         // Use the register and userObject values that were passed as arguments
         //register({ ...userObject, profilePicture: uploadedPublicId });
         //sendPublicIdToSQL(uploadedPublicId);
+        debugger
         AddImageUrl({userId: CurrentUserObject.id, imageUrl: `https://res.cloudinary.com/dpwgvs3m0/image/upload/v1671226865/${uploadedPublicId}`})
       }); 
   };

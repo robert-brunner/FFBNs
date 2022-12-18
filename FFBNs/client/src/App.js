@@ -8,8 +8,8 @@ import Deck from './components/swipes/Deck';
 
 function App() {
   const [ isLoggedIn, setIsLoggedIn ] = useState(true);
-
-
+  const [localUserObject, setLocalUserObject] = useState();
+  
   
      //fixed bug...changed initial state to false
   useEffect(()=>{  
@@ -19,14 +19,20 @@ function App() {
     }
   },[isLoggedIn])
 
+  useEffect(()=>{
+    setLocalUserObject(localStorage.getItem("userProfile"))
+
+  }, [isLoggedIn]
+  )
+
   return (
     <>
     <Router>
-        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         { isLoggedIn ?
-        <ApplicationViews  />        
+        <ApplicationViews  localUserObject={localUserObject}/>        
         :
-        <Authorize setIsLoggedIn={setIsLoggedIn}/>
+        <Authorize setIsLoggedIn={setIsLoggedIn}  localUserObject={localUserObject}/>
         }
     </Router>
     </>

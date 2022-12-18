@@ -5,14 +5,14 @@ import { UpdateDog, getCurrentUser,getUserById} from "../../managers/UserProfile
 import UserProfilePictures  from "./UserProfilePictures";
 
 
-export const UserPawfileEdit = () => {
+export const UserPawfileEdit = (localUserObject) => {
     const navigate = useNavigate ();
     const { id } = useParams (); ////local storage logged in user id instead of use params-  NEED TO FIX
 
     //load local user into state- 
 // console.log(getCurrentUser)
     
-  const localUserObject = localStorage.getItem("userProfile")
+  
   console.log(localUserObject)
   const CurrentUserObject = JSON.parse(localUserObject)
   const CurrentUserId = CurrentUserObject.id;

@@ -12,10 +12,10 @@ import {
 } from 'reactstrap';
 
 
-export default function Header({ isLoggedIn, setIsLoggedIn }) {
+export default function Header({ isLoggedIn, setIsLoggedIn, setLocalUserObject }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  const [localUser, setLocalUser] = useState("");
+  
 
   return (
     <div className="Header">
