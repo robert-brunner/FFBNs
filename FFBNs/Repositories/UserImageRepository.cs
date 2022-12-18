@@ -21,7 +21,9 @@ namespace FFBNs.Repositories
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"Select id, userId, imageUrl FROM UserImages where userId = @id";
+                    cmd.CommandText = @"SELECT id, userId, imageUrl 
+                                        FROM UserImages 
+                                        WHERE userId = @id";
                     DbUtils.AddParameter(cmd, "id", id);
 
                     var reader = cmd.ExecuteReader();
@@ -53,7 +55,9 @@ namespace FFBNs.Repositories
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"Insert Into UserImages (userId, imageUrl) OUTPUT INSERTED.ID VALUES (@userId, @imageUrl )";
+                    cmd.CommandText = @"INSERT INTO UserImages (userId, imageUrl) 
+                                        OUTPUT INSERTED.ID 
+                                        VALUES (@userId, @imageUrl )";
 
                     DbUtils.AddParameter(cmd, "@userId", userImages.userId);
                     DbUtils.AddParameter(cmd, "@imageUrl", userImages.imageUrl);
