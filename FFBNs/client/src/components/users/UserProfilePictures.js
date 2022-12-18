@@ -2,6 +2,27 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { Image } from "cloudinary-react";
 
+const localUserObject = localStorage.getItem("userProfile")
+console.log(localUserObject)
+const CurrentUserObject = JSON.parse(localUserObject)
+const apiUrl = "https://localhost:5001";
+
+export const getImagesByUserId = (id) => {
+    return fetch(`${apiUrl}/api/UserImage/${id}`) // http GET request or  `/api/userProfile`.then((res) => res.json())
+};
+
+
+// http Swipe request
+export const AddImageUrl = (imageUrlObject) => {
+    return fetch(`${apiUrl}/api/UserImage/PostImage`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(imageUrlObject)
+    });
+};
+
 function UserProfilePictures({ register, userObject, sendPublicIdToSQL, setPublicId, publicId }) { // Accept the register and userObject values as arguments
   const [imageSelected, setImageSelected] = useState("");
   
@@ -17,11 +38,14 @@ function UserProfilePictures({ register, userObject, sendPublicIdToSQL, setPubli
         console.log(response)
         console.log(response.data.public_id)
         // Use the register and userObject values that were passed as arguments
-        register({ ...userObject, profilePicture: uploadedPublicId });
-        sendPublicIdToSQL(uploadedPublicId);
+        //register({ ...userObject, profilePicture: uploadedPublicId });
+        //sendPublicIdToSQL(uploadedPublicId);
+        AddImageUrl({userId: CurrentUserObject.id, imageUrl: `https://res.cloudinary.com/dpwgvs3m0/image/upload/v1671226865/${uploadedPublicId}`})
       }); 
   };
 
+
+  
 
   
 //alright- assuming this is correct- i have publicId as the value- so now i need to send that value to sql server and retrieve it with the UserPawFile in place of the null value- as the picture

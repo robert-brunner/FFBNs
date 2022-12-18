@@ -108,9 +108,10 @@ namespace FFBNs.Repositories
                 {
                     cmd.CommandText = @"
                           SELECT TOP 1 d.Id AS 'DogId', d.UserName, 
-                           d.Email, d.Avatar, d.Interests
-                           FROM [Dog] d
-                           ORDER BY NEWID()";
+                          d.Email, d.Avatar, d.Interests, ui.id as userId, ui.imageUrl
+                          FROM [Dog] d
+                          Left Join UserImages uI on d.id = ui.userId
+                          ORDER BY NEWID()";
 
                     var reader = cmd.ExecuteReader();
 
@@ -122,7 +123,7 @@ namespace FFBNs.Repositories
                             Id = DbUtils.GetInt(reader, "DogId"),
                             DisplayName = DbUtils.GetString(reader, "UserName"),
                             Email = DbUtils.GetString(reader, "Email"),
-                            PawFilePic = DbUtils.GetString(reader, "Avatar"),
+                            PawFilePic = DbUtils.GetString(reader, "imageUrl"),
                             Interests = DbUtils.GetString(reader, "Interests")
                         });
                     }

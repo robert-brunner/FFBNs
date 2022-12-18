@@ -4,6 +4,7 @@ import { Table, Button } from "reactstrap";
 import { UserProfileItem } from "./UserProfileItem";
 import { addSwipe, Undo, UndoLike } from "../../managers/SwipeManager";
 import { Navigate } from "react-router-dom";
+import { Image } from "cloudinary-react";
 
 
 export const PotentialPlaymate = () => {
@@ -77,7 +78,7 @@ export const PotentialPlaymate = () => {
         <tr>
           <th>{userPawFiles.displayName}</th>
           <th>{userPawFiles.interests}</th>
-          <th>{userPawFiles.pawFilePic}</th>
+          <img style= {{width: 200}}src= {userPawFiles.pawFilePic} />
         </tr>
       </thead>
       <tbody>

@@ -88,7 +88,7 @@ export const UserPawfileEdit = () => {
                             {/* this is where I want to be!!! */}
                     <FormGroup>
                         <Label for="avatar">PawFile Picture</Label> 
-                        <UserProfilePictures setPublicId={(setPublicId)} publicId={(publicId)} sendPublicIdToSQL={(publicId) => setUserPawfile({ ...userPawfile, avatar: publicId })} />
+                        <UserProfilePictures CurrentUserObject={(CurrentUserObject)} setPublicId={(setPublicId)} publicId={(publicId)} sendPublicIdToSQL={(publicId) => setUserPawfile({ ...userPawfile, avatar: publicId })} />
                     </FormGroup>
 
 

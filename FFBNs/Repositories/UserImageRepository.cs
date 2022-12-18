@@ -33,7 +33,7 @@ namespace FFBNs.Repositories
                         {
                             id = DbUtils.GetInt(reader, "id"),
                             userId = DbUtils.GetInt(reader, "userId"),
-                            imageUrl = DbUtils.GetString(reader, "image")
+                            imageUrl = DbUtils.GetString(reader, "imageUrl")
 
 
                         });
@@ -53,8 +53,8 @@ namespace FFBNs.Repositories
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"";
-                    DbUtils.AddParameter(cmd, "@id", userImages.id);
+                    cmd.CommandText = @"Insert Into UserImages (userId, imageUrl) OUTPUT INSERTED.ID VALUES (@userId, @imageUrl )";
+
                     DbUtils.AddParameter(cmd, "@userId", userImages.userId);
                     DbUtils.AddParameter(cmd, "@imageUrl", userImages.imageUrl);
 

@@ -140,9 +140,9 @@
 
 
 
-// /*Things to accomplish with Nick----
-// -------------------------------------
+/*Things to accomplish with Nick----
+-------------------------------------
 
-// -fix overscroll
-// -change images to read database
-//  */
+-fix overscroll
+-change images to read database
+ */
