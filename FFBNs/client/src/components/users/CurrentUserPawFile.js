@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Table } from "reactstrap";
 import { UserProfileItem } from "./UserProfileItem";
 // import UserProfilePictures from "./UserProfilePictures";
+// import Axios from "axios";
+// import { Image } from "cloudinary-react";
 
 export const CurrentUserPawfile = () => {
   const [userPawFiles, setUserPawfiles] = useState({});

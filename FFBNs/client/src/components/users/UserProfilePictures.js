@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { Image } from "cloudinary-react";
 
-function UserProfilePictures({ register, userObject, sendPublicIdToSQL }) { // Accept the register and userObject values as arguments
+function UserProfilePictures({ register, userObject, sendPublicIdToSQL, setPublicId, publicId }) { // Accept the register and userObject values as arguments
   const [imageSelected, setImageSelected] = useState("");
-  const [publicId, setPublicId] = useState("");
+  
 
   const uploadImage = () => {
     const formData = new FormData();
@@ -14,6 +14,8 @@ function UserProfilePictures({ register, userObject, sendPublicIdToSQL }) { // A
       .then((response) => {
         const uploadedPublicId = response.data.public_id;
         setPublicId(uploadedPublicId);
+        console.log(response)
+        console.log(response.data.public_id)
         // Use the register and userObject values that were passed as arguments
         register({ ...userObject, profilePicture: uploadedPublicId });
         sendPublicIdToSQL(uploadedPublicId);
@@ -32,7 +34,7 @@ function UserProfilePictures({ register, userObject, sendPublicIdToSQL }) { // A
             setImageSelected(event.target.files[0]);
           }}
         />
-        <button onClick={uploadImage}>UploadImage</button>
+        <button onClick={uploadImage}>Upload_Image</button>
         <Image style={{ width: 200 }} cloudName="cPawFilePics" publicId={`https://res.cloudinary.com/dpwgvs3m0/image/upload/v1671226865/${publicId}`} />
       </div>
     </>

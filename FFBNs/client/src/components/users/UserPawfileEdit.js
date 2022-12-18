@@ -16,6 +16,7 @@ export const UserPawfileEdit = () => {
   console.log(localUserObject)
   const CurrentUserObject = JSON.parse(localUserObject)
   const CurrentUserId = CurrentUserObject.id;
+  const [publicId, setPublicId] = useState("");
 
     const [userPawfile, setUserPawfile] = useState({
         id:0,
@@ -39,7 +40,7 @@ export const UserPawfileEdit = () => {
             id: userPawfile.id,
             displayName: userPawfile.displayName,
             email: userPawfile.email,
-            avatar: userPawfile.avatar,
+            avatar: publicId,
             interests: userPawfile.interests,
         };
         console.log(editedUserPawFile)
@@ -80,10 +81,17 @@ export const UserPawfileEdit = () => {
                             setUserPawfile(PawFileCopy);
                         }} />
                     </FormGroup>
+
+                            {/* this is where I want to be!!! */}
+                            {/* this is where I want to be!!! */}
+                            {/* this is where I want to be!!! */}
+                            {/* this is where I want to be!!! */}
                     <FormGroup>
                         <Label for="avatar">PawFile Picture</Label> 
-                        <UserProfilePictures sendPublicIdToSQL={(publicId) => setUserPawfile({ ...userPawfile, avatar: publicId })} />
+                        <UserProfilePictures setPublicId={(setPublicId)} publicId={(publicId)} sendPublicIdToSQL={(publicId) => setUserPawfile({ ...userPawfile, avatar: publicId })} />
                     </FormGroup>
+
+
                     <FormGroup>
                         <Label for="interests">Interests</Label>
                         <Input type="text" name="interests" required value={userPawfile.interests}
@@ -109,3 +117,16 @@ export const UserPawfileEdit = () => {
 
 
 //export const getCurrentUserId = () => JSON.parse(localStorage.getItem('userProfile')).id;
+
+
+/* old image upload 
+ <FormGroup>
+                        <Label for="avatar">PawFile Picture</Label>
+                        <Input type="text" name="avatar" required value={userPawfile.avatar}
+                        onChange={(e) => {
+                            const PawFileCopy = { ...userPawfile };
+                            PawFileCopy.avatar = e.target.value;
+                            setUserPawfile(PawFileCopy);
+                        }} />
+                    </FormGroup>
+*/
