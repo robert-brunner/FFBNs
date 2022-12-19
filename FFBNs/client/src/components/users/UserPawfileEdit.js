@@ -5,17 +5,17 @@ import { UpdateDog, getCurrentUser,getUserById} from "../../managers/UserProfile
 import UserProfilePictures  from "./UserProfilePictures";
 
 
-export const UserPawfileEdit = (localUserObject) => {
+export const UserPawfileEdit = () => {
     const navigate = useNavigate ();
     const { id } = useParams (); ////local storage logged in user id instead of use params-  NEED TO FIX
 
     //load local user into state- 
 // console.log(getCurrentUser)
     
-  
+  let localUserObject = localStorage.getItem("userProfile")
   console.log(localUserObject)
-  const CurrentUserObject = JSON.parse(localUserObject)
-  const CurrentUserId = CurrentUserObject.id;
+  let CurrentUserObject = JSON.parse(localUserObject)
+  let CurrentUserId = CurrentUserObject.id;
   const [publicId, setPublicId] = useState("");
 
     const [userPawfile, setUserPawfile] = useState({
@@ -88,6 +88,9 @@ export const UserPawfileEdit = (localUserObject) => {
                             {/* this is where I want to be!!! */}
                     <FormGroup>
                         <Label for="avatar">PawFile Picture</Label> 
+
+
+                        
                         <UserProfilePictures CurrentUserObject={(CurrentUserObject)} setPublicId={(setPublicId)} publicId={(publicId)} sendPublicIdToSQL={(publicId) => setUserPawfile({ ...userPawfile, avatar: publicId })} />
                     </FormGroup>
 

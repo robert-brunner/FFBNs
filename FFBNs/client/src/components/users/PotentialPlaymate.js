@@ -92,13 +92,13 @@ export const PotentialPlaymate = () => {
           }
 
       <Button color="warning" value={false} onClick={(e) => { DeleteSwipe(e)
-        console.log("3")}} >UnFetch</Button>
+        console.log("3")}} >Undo</Button>
       <Button color="danger" value={false} onClick={(e) => { handleSaveNewDisSwipe(e)
         console.log("2")}} >Scaredey-Cat</Button>
       <Button color="success" value={true} onClick={(e) => { 
         handleSaveNewSwipe(e)
           console.log("1")
-          }} >Go-Fetch!</Button>
+          }} >Throw-a-Bone</Button>
       
       </tbody>
     </Table>

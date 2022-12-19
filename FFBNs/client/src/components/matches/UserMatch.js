@@ -3,6 +3,7 @@ import { Table, Button } from "reactstrap";
 import { Navigate, useParams } from "react-router-dom";
 import { getALLMatches } from "../../managers/MatchManager";
 import { MatchItem } from "./MatchItem";
+import { getImagesByUserId } from "../users/UserProfilePictures";
 
 
 
@@ -11,6 +12,7 @@ import { MatchItem } from "./MatchItem";
 export const Match = () => {
 
     const [matches, setMatch] = useState([]);
+    const [userPawFiles, setUserPawfiles] = useState();
 
     const getMatches = () => {
         getALLMatches()
@@ -20,9 +22,13 @@ export const Match = () => {
 
     useEffect(() =>{
         getMatches();
+        getImagesByUserId(getMatches)
+        .then(setUserPawfiles)
     }, []);
 
-
+    if (!matches) {
+      return null;
+    }
     return (<>
     
         <h2 className="welcome">Matches</h2>
@@ -37,8 +43,10 @@ export const Match = () => {
                 <MatchItem key={match.id} user={match} setMatch = {setMatch} />  //using key and prop
               ))}
             </div>
+            
           </div>
         </div>
+        
         </Table>
         </>
       );

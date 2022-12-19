@@ -6,7 +6,8 @@ import { Image } from "cloudinary-react";
 const apiUrl = "https://localhost:5001";
 
 export const getImagesByUserId = (id) => {
-    return fetch(`${apiUrl}/api/UserImage/${id}`) // http GET request or  `/api/userProfile`.then((res) => res.json())
+    return fetch(`${apiUrl}/api/UserImage/${id}`) 
+    .then((res) => res.json())
 };
 
 
@@ -21,11 +22,14 @@ export const AddImageUrl = (imageUrlObject) => {
     });
 };
 
-function UserProfilePictures({ register, userObject, sendPublicIdToSQL, setPublicId, publicId, localUserObject }) { // Accept the register and userObject values as arguments
+function UserProfilePictures({ register, userObject, sendPublicIdToSQL, setPublicId, publicId }) { // Accept the register and userObject values as arguments
   const [imageSelected, setImageSelected] = useState("");
-  const CurrentUserObject = JSON.parse(localUserObject)
+  let localUserObject = localStorage.getItem("userProfile")
+  console.log(localUserObject)
+  let CurrentUserObject = JSON.parse(localUserObject)  
 
   const uploadImage = () => {
+
     const formData = new FormData();
     formData.append("file", imageSelected);
     formData.append("upload_preset", "cPawFilePics");
@@ -38,7 +42,6 @@ function UserProfilePictures({ register, userObject, sendPublicIdToSQL, setPubli
         // Use the register and userObject values that were passed as arguments
         //register({ ...userObject, profilePicture: uploadedPublicId });
         //sendPublicIdToSQL(uploadedPublicId);
-        debugger
         AddImageUrl({userId: CurrentUserObject.id, imageUrl: `https://res.cloudinary.com/dpwgvs3m0/image/upload/v1671226865/${uploadedPublicId}`})
       }); 
   };

@@ -11,14 +11,14 @@ import { Match } from "../matches/UserMatch"
 
 
 
-export default function ApplicationViews(localUserObject){
+export default function ApplicationViews(){
     return(
         <Routes>
             {/* <Route path="/" element={<Deck/>} /> */}
-            <Route path="/UserMatch" element={<Match localUserObject={localUserObject}/>} />
-            <Route path="/PotentialPlaymate" element={<PotentialPlaymate localUserObject={localUserObject}/>} />
-            <Route path="/userEdit" element={<UserPawfileEdit localUserObject={localUserObject}/>} />
-            <Route path="/CurrentUserPawfile" element={<CurrentUserPawfile localUserObject={localUserObject}/>} />
+            <Route path="/UserMatch" element={<Match/>} />
+            <Route path="/PotentialPlaymate" element={<PotentialPlaymate/>} />
+            <Route path="/userEdit" element={<UserPawfileEdit/>} />
+            <Route path="/CurrentUserPawfile" element={<CurrentUserPawfile/>} />
             
         </Routes>
     )
