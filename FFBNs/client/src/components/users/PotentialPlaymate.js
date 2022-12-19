@@ -46,28 +46,23 @@ export const PotentialPlaymate = () => {
         )
       }
 
-      /*
-      ITS AROUND HERE.. its still fetching from random pawfiles- it needs to look for the id.  I need to make a fetch and pull the hash here
-      */
       //Dislike
       const handleSaveNewDisSwipe = (event) => {
         event.preventDefault()
         const currentId = userPawFiles.id
         setPreviousDog(currentId)
         const DisLikeToSendToAPI = {
-            DogId: CurrentUserId,
-            OtherDogId: userPawFiles.id,  
-            Like: (false)
+          DogId: CurrentUserId,
+          OtherDogId: userPawFiles.id,  
+          Like: (false)
         }
-      return (
-        addSwipe(DisLikeToSendToAPI)  // navigation correct?
-        .then((p)=> {
+        return (
+          addSwipe(DisLikeToSendToAPI)  // navigation correct?
+          .then((p)=> {
           getDogProfile()
         })
         )
       }
-  // assuming I have this right- this should find the previous dog value and delete the like that was added to it from the database in the Swipes Table. 
-  //Delete Swipe is called in the button, Undo Like is the fetch call; previousDog.id should be pulling the id of the former dog that was just barely swiped on whether its like or dislike. 
       const DeleteSwipe = () => {
         UndoLike(previousDog)
         .then(() =>{
@@ -76,14 +71,14 @@ export const PotentialPlaymate = () => {
         })
       }
       
-    return(
-      <Card className="SwipeCards"
-      color="dark"
-      outline
-      style={{
-        width: '18rem'
-      }}
-    >
+      return(
+        <Card className="SwipeCards"
+        color="dark"
+        outline
+        style={{
+          width: '18rem'
+        }}
+        >
         <img className="SwipeImages" src= {userPawFiles.pawFilePic} />
       <CardBody >
         <CardTitle tag="h5">{userPawFiles.displayName}
@@ -92,21 +87,21 @@ export const PotentialPlaymate = () => {
         <CardSubtitle
           className="mb-2 text-muted"
           tag="h6"
-        >
+          >
             {userPawFiles.interests}
           
         </CardSubtitle>
         {
-                <UserProfileItem key={userPawFiles.id} user={userPawFiles} setUserPawfile={setUserPawfiles} />
-              }
+          <UserProfileItem key={userPawFiles.id} user={userPawFiles} setUserPawfile={setUserPawfiles} />
+        }
         <Button color="warning" value={false} onClick={(e) => { DeleteSwipe(e)
             console.log("3")}} >Undo</Button>
           <Button color="danger" value={false} onClick={(e) => { handleSaveNewDisSwipe(e)
             console.log("2")}} >Scaredey-Cat</Button>
           <Button color="success" value={true} onClick={(e) => { 
             handleSaveNewSwipe(e)
-              console.log("1")
-              }} >Throw-a-Bone</Button>
+            console.log("1")
+          }} >Throw-a-Bone</Button>
               
       </CardBody>
     </Card>
@@ -117,18 +112,23 @@ export const PotentialPlaymate = () => {
 <img src="/some-img-url/" alt="Submit Form">
 </button> */}
 
-        // //undo- 3rd button - instead of post request-eventlistener -send delete request
-        // const handleSaveNewUnSwipe = () => {
-        //   UndoSwipe()
-        //   const UndoSwipe = {
-        //       DogId: CurrentUserId,
-        //       OtherDogId: userPawFiles.id,  
-        //       Like: ()
-        //   }
-        // return (
-        //   UndoLike(UndoSwipe)  // navigation correct?
-        //   .then((p)=> {
+// //undo- 3rd button - instead of post request-eventlistener -send delete request
+// const handleSaveNewUnSwipe = () => {
+  //   UndoSwipe()
+  //   const UndoSwipe = {
+    //       DogId: CurrentUserId,
+    //       OtherDogId: userPawFiles.id,  
+    //       Like: ()
+    //   }
+    // return (
+      //   UndoLike(UndoSwipe)  // navigation correct?
+      //   .then((p)=> {
         //     getDogProfile()
         //   })
         //   )
         // }
+        // assuming I have this right- this should find the previous dog value and delete the like that was added to it from the database in the Swipes Table. 
+        //Delete Swipe is called in the button, Undo Like is the fetch call; previousDog.id should be pulling the id of the former dog that was just barely swiped on whether its like or dislike. 
+        /*
+        ITS AROUND HERE.. its still fetching from random pawfiles- it needs to look for the id.  I need to make a fetch and pull the hash here
+        */

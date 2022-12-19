@@ -6,7 +6,7 @@ import { getImagesByUserId}  from "./UserProfilePictures";
 
 
 export const CurrentUserPawfile = () => {
-  const [userPawFiles, setUserPawfiles] = useState();
+  const [userPawFiles, setUserPawfiles] = useState([]);
 
   // Retrieve the logged in user's details from local storage
   let localUserObject = localStorage.getItem("userProfile")

@@ -46,6 +46,7 @@ export const UserPawfileEdit = () => {
 
         UpdateDog(editedUserPawFile).then(() => {
             // console.log("success!!!!!")
+            localStorage.setItem("userProfile", JSON.stringify(editedUserPawFile))
             navigate("/CurrentUserPawFile");
         })
        
@@ -61,7 +62,7 @@ export const UserPawfileEdit = () => {
         
         
         <section className="mx-5 mb-5 mt-3 ">
-            <h3>Edit </h3>
+            <h3 >Edit </h3>
             <div className="border mt-3 p-3">
                 <Form onSubmit={handleSave}>
                     <FormGroup>
