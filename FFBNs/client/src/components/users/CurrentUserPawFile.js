@@ -1,6 +1,6 @@
 import { Image } from "cloudinary-react";
 import React, { useEffect, useState } from "react";
-import { Table } from "reactstrap";
+import { Table, Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 import { getImagesByUserId}  from "./UserProfilePictures";
 
 
@@ -23,6 +23,54 @@ export const CurrentUserPawfile = () => {
     .then(setUserPawfiles)
 }, []);
 
+
+if (!userPawFiles) {
+  return null;
+}
+
+console.log(userPawFiles)
+return(
+  <div className="m-5">
+      <Table>
+        
+        <thead className="PawFileInfo">
+          <th className="btnn">UserName
+            <p className="UserInput">{currentUserObject.displayName}</p>
+          </th>
+          <th className="btnn">Interests
+            <p className="UserInput">{currentUserObject.interests}</p>
+          </th >
+          <th className="btnn">Email
+            <p className="UserInput">{currentUserObject.email}</p> 
+          </th>
+          
+        </thead>
+
+        
+      </Table>
+      <div className="PawFileCards">
+      {
+        userPawFiles.map((pawfileObject) => {
+          return <img className="PawFileImg" src={pawfileObject.imageUrl} />
+        })
+      }
+    </div>
+
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
 // const PostDetails = () => {
 //   const [post, setPost] = useState();
 //   const { id } = useParams();
@@ -31,35 +79,23 @@ export const CurrentUserPawfile = () => {
 //     getPost(id).then(setPost);
 //   }, []);
 
-if (!userPawFiles) {
-  return null;
-}
 
-console.log(userPawFiles)
-  return(
-      <div className="m-5">
-      <Table>
-        
-        <thead>
-          <tr>
-            <th>{currentUserObject.displayName}</th>
-            <th>{currentUserObject.interests}</th>
-            <th>{currentUserObject.email}</th> 
-          </tr>
-        </thead>
 
-        
-      </Table>
-      {
-        userPawFiles.map((pawfileObject) => {
-          return <img className="PawFileImg" src={pawfileObject.imageUrl} />
-        })
-      }
-    
 
-    </div>
-  );
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {/* {
 userPawFiles.map(pawfileObject => {
