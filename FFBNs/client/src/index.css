@@ -141,7 +141,7 @@ color:#000000b6
   position: absolute;
   width: 20vw;
   height: 3vh;
-  font-family: helvetica;
+  font-family:'Montserrat', sans-serif;
   font-size: 30px;
   color: white;
   border: none;
@@ -173,7 +173,7 @@ a {
 
  .navbar a{
   text-align:left;
-  font-family:'Arial Black','Arial Bold',Gadget,sans-serif;
+  font-family:'Montserrat', sans-serif;
  }
 
  /* ------------------------------------------------------------- */
@@ -201,5 +201,67 @@ a {
 box-shadow:17px 11px 100px -4px #1d0b0b;
  }
  .MsgBtn{
-  background-image: linear-gradient(to right, #fd287c, #ff7654)
+  background-image: linear-gradient(to right, #fd287c, #ff7654);
+  position:relative;
+  top:41vh;
+  left:18vh;
+ }
+
+ .MtchTxt{
+
+ }
+
+ /* Table Data */
+.card-text tr td{
+  font-style:italic;
+  color:#187adc;
+  text-shadow:rgba(0, 0, 0, 0.3) 0px 1px 1px;
+  text-transform:uppercase;
+  filter: hue-rotate(77deg) saturate(1.34);
+ }
+
+ .ralph{
+  background-image: linear-gradient(to right, #fd287c, #ff7654);
+ }
+
+ .felicia{
+  border-radius: 10px;
+  
+ }
+ /* Input */
+.mx-5 div input[type=file]{
+  box-shadow:0px 0px 3px 0px #110d3a inset;
+ }
+
+ /* Border */
+ .mx-5 .border{
+  background-color:rgba(218,209,209,0.62);
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  box-shadow:0px 0px 9px 0px #212529;
+  transform:translatex(0px) translatey(0px);
+ }
+ 
+ /* Input */
+ .mx-5 form input[type=text]{
+  box-shadow:0px 0px 6px 0px #212529 inset;
+ }
+
+ .m-5 form {
+  background-color:rgba(218,209,209,0.62);
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  box-shadow:0px 0px 9px 0px #212529;
+  transform:translatex(0px) translatey(0px);
+  
+ }
+
+ .welcomeTxt{
+  color: #fd287c;
+  font-family:'Montserrat', sans-serif;
+  font-weight:700;
  }

@@ -35,7 +35,7 @@ export const  Login = ({ setIsLoggedIn }) => {
       <Form onSubmit={loginSubmit}>
         <fieldset>
           <FormGroup>
-            <Label for="Email">Email</Label>
+            <Label className="welcomeTxt" for="Email">Email</Label>
             <Input id="Email" type="text" onChange={e => setEmail(e.target.value)} />
           </FormGroup>
           {/* <FormGroup>
@@ -43,9 +43,9 @@ export const  Login = ({ setIsLoggedIn }) => {
             <Input id="password" type="password" onChange={e => setPassword(e.target.value)} />
           </FormGroup> */}
           <FormGroup>
-            <Button>Go Fetch!</Button>
+            <Button className="ralph">Go Fetch!</Button>
           </FormGroup>
-          <em>
+          <em className="welcomeTxt">
             Not registered? <Link to="/register">Register</Link>
           </em>
         </fieldset>

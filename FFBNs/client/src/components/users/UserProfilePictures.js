@@ -54,13 +54,13 @@ function UserProfilePictures({ register, userObject, sendPublicIdToSQL, setPubli
   return (
     <>
       <div>
-        <input
+        <input className="felicia"
           type="file"
           onChange={(event) => {
             setImageSelected(event.target.files[0]);
           }}
         />
-        <button onClick={uploadImage}>Upload_Image</button>
+        <button className="felicia" onClick={uploadImage}>Upload_Image</button>
         <Image style={{ width: 200 }} cloudName="cPawFilePics" publicId={`https://res.cloudinary.com/dpwgvs3m0/image/upload/v1671226865/${publicId}`} />
       </div>
     </>

@@ -18,10 +18,10 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
   const [localUser, setLocalUser] = useState("");
 
   return (
-    <div className="Header">
+    <div className="Header, welcomeTxt">
       <Navbar color="light" light expand="md">
-        <NavbarBrand tag={RRNavLink} to="/PotentialPlaymate">Paw-Or-Not</NavbarBrand>
-        <NavLink tag={RRNavLink} to="/userEdit" className="nav-link p-2">Edit Pawfile</NavLink>
+        <NavbarBrand tag={RRNavLink} to="/PotentialPlaymate">Dinder</NavbarBrand>
+        <NavLink  tag={RRNavLink} to="/userEdit" className="nav-link p-2,">Edit Pawfile</NavLink>
         <NavLink tag={RRNavLink} to="/UserMatch" className="nav-link p-2">Matches</NavLink>
 
         

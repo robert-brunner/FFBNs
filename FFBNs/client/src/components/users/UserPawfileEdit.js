@@ -61,11 +61,11 @@ export const UserPawfileEdit = () => {
         
         
         <section className="mx-5 mb-5 mt-3 ">
-            <h3>Edit Post</h3>
+            <h3>Edit </h3>
             <div className="border mt-3 p-3">
                 <Form onSubmit={handleSave}>
                     <FormGroup>
-                        <Label for="displayName">PawFileName</Label>
+                        <Label className="welcomeTxt" for="displayName">PawFileName</Label>
                         <Input type="text" name="displayName" value={userPawfile.displayName}
                         onChange={(e) => {
                             const PawFileCopy = { ...userPawfile };
@@ -75,7 +75,7 @@ export const UserPawfileEdit = () => {
                     </FormGroup>
                
                     <FormGroup>
-                        <Label for="email">Email</Label>
+                        <Label className="welcomeTxt" for="email">Email</Label>
                         <Input type="text" name="email" required value={userPawfile.email}
                         onChange={(e) => {
                             const PawFileCopy = { ...userPawfile };
@@ -89,7 +89,7 @@ export const UserPawfileEdit = () => {
                             {/* this is where I want to be!!! */}
                             {/* this is where I want to be!!! */}
                     <FormGroup>
-                        <Label for="avatar">PawFile Picture</Label> 
+                        <Label className="welcomeTxt" for="avatar">PawFile Picture</Label> 
 
 
 
@@ -98,7 +98,7 @@ export const UserPawfileEdit = () => {
 
 
                     <FormGroup>
-                        <Label for="interests">Interests</Label>
+                        <Label className="welcomeTxt" for="interests">Interests</Label>
                         <Input type="text" name="interests" required value={userPawfile.interests}
                         onChange={(e) => {
                             const PawFileCopy = { ...userPawfile };
@@ -106,8 +106,8 @@ export const UserPawfileEdit = () => {
                             setUserPawfile(PawFileCopy);
                         }} />
                     </FormGroup>
-                    <Button className="button mr-2">Save</Button>
-                    <Button onClick={handleCancel} className="button">Cancel</Button>
+                    <Button className="button mr-2, ralph">Save</Button>
+                    <Button onClick={handleCancel} className="button, ">Cancel</Button>
                 </Form>
             </div>
         </section>

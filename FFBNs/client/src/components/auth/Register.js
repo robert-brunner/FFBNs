@@ -28,15 +28,15 @@ export default function Register({ setIsLoggedIn }) {
       <Form onSubmit={registerClick}>
         <fieldset>
           <FormGroup>
-            <Label htmlFor="DisplayName">PawFile Name</Label>
+            <Label className="welcomeTxt" htmlFor="DisplayName">PawFile Name</Label>
             <Input id="DisplayName" type="text" onChange={e => setDisplayName(e.target.value)} />
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="Email">Email</Label>
+            <Label className="welcomeTxt" htmlFor="Email">Email</Label>
             <Input id="Email" type="text" onChange={e => setEmail(e.target.value)} />
           </FormGroup>
           <FormGroup>
-            <Button>Register</Button>
+            <Button className="ralph">Register</Button>
           </FormGroup>
         </fieldset>
       </Form>
