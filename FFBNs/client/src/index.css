@@ -55,5 +55,36 @@ code {
         transform: translate(-50%, -50%);
 
 box-shadow:17px 11px 100px -4px #1d0b0b;
- 
 }
+
+.SwipeCards .card-body .btn{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+
+}
+/* Button */
+.SwipeCards .card-body .btn-success{
+  transform:translatex(6px) translatey(201px);
+ }
+ 
+ /* Button */
+ .SwipeCards .card-body .btn-danger{
+  transform:translatex(-132px) translatey(201px);
+ }
+ 
+ /* Button */
+ .SwipeCards .card-body .btn-warning{
+  transform:translatex(-132px) translatey(156px);
+ }
+ 
+ /* Heading */
+ .SwipeCards .card-body h5{
+  text-align:right;
+ }
+ 
+ /* Heading */
+ .SwipeCards .card-body h6{
+  text-align:right;
+ }

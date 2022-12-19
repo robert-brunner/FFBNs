@@ -107,11 +107,15 @@ export const PotentialPlaymate = () => {
             handleSaveNewSwipe(e)
               console.log("1")
               }} >Throw-a-Bone</Button>
+              
       </CardBody>
     </Card>
   );
 }
 
+{/* <button>
+<img src="/some-img-url/" alt="Submit Form">
+</button> */}
 
         // //undo- 3rd button - instead of post request-eventlistener -send delete request
         // const handleSaveNewUnSwipe = () => {
