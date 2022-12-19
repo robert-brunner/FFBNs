@@ -4,6 +4,7 @@ import { Table } from "reactstrap";
 import { getImagesByUserId}  from "./UserProfilePictures";
 
 
+
 export const CurrentUserPawfile = () => {
   const [userPawFiles, setUserPawfiles] = useState();
 
@@ -51,7 +52,7 @@ console.log(userPawFiles)
       </Table>
       {
         userPawFiles.map((pawfileObject) => {
-          return <img src={pawfileObject.imageUrl} />
+          return <img className="PawFileImg" src={pawfileObject.imageUrl} />
         })
       }
     

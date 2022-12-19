@@ -13,7 +13,7 @@ export const UserPawfileEdit = () => {
 // console.log(getCurrentUser)
     
   let localUserObject = localStorage.getItem("userProfile")
-  console.log(localUserObject)
+//   console.log(localUserObject)
   let CurrentUserObject = JSON.parse(localUserObject)
   let CurrentUserId = CurrentUserObject.id;
   const [publicId, setPublicId] = useState("");
@@ -43,10 +43,9 @@ export const UserPawfileEdit = () => {
             avatar: publicId,
             interests: userPawfile.interests,
         };
-        console.log(editedUserPawFile)
         UpdateDog(editedUserPawFile).then(() => {
             // console.log("success!!!!!")
-            navigate("/");
+            navigate("/CurrentUserPawfile");
         })
        
     };
@@ -90,7 +89,7 @@ export const UserPawfileEdit = () => {
                         <Label for="avatar">PawFile Picture</Label> 
 
 
-                        
+
                         <UserProfilePictures CurrentUserObject={(CurrentUserObject)} setPublicId={(setPublicId)} publicId={(publicId)} sendPublicIdToSQL={(publicId) => setUserPawfile({ ...userPawfile, avatar: publicId })} />
                     </FormGroup>
 

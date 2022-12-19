@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Times-New-Roman',
     monospace;
 } */
+
+
+
+.PawFileImg{
+  width: 20%;
+  height: 90%;
+  object-fit: contain;
+}
