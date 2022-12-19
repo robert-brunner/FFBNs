@@ -13,7 +13,7 @@ export const UserPawfileEdit = () => {
 // console.log(getCurrentUser)
     
   let localUserObject = localStorage.getItem("userProfile")
-//   console.log(localUserObject)
+  console.log(localUserObject)
   let CurrentUserObject = JSON.parse(localUserObject)
   let CurrentUserId = CurrentUserObject.id;
   const [publicId, setPublicId] = useState("");
@@ -43,12 +43,15 @@ export const UserPawfileEdit = () => {
             avatar: publicId,
             interests: userPawfile.interests,
         };
+
         UpdateDog(editedUserPawFile).then(() => {
             // console.log("success!!!!!")
-            navigate("/CurrentUserPawfile");
+            navigate("/CurrentUserPawFile");
         })
        
     };
+
+    //I KNOW IT HAS SOMETHING TO DO WITH THIS.  IF I EDIT IT- it does save the edit but it doesnt load until after I reaload relog-  It has something to do with.. wait. it just went away?  ARRGH ive been trying to fix this error for 2 hours.... WHAAAAT--- LItterally as im typing it it fixes itself.  DANNGIT --- i need a break- no wait its back.  So  the change happens but it doesnt update on the PAWFIle until state changes and the dog is relogged..-im too tired to deal with.. make it pretty first and fix later.. it has something to do with state change though. 
     const handleCancel = (e) => {
         e.preventDefault()
         navigate("/CurrentUserPawfile")

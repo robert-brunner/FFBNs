@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getRandomUser, Like} from "../../managers/UserProfileManager";
-import { Table, Button } from "reactstrap";
+import { Table, Button, Card, CardBody,CardTitle,CardSubtitle } from "reactstrap";
 import { UserProfileItem } from "./UserProfileItem";
 import { addSwipe, Undo, UndoLike } from "../../managers/SwipeManager";
 import { Navigate } from "react-router-dom";
@@ -77,32 +77,38 @@ export const PotentialPlaymate = () => {
       }
       
     return(
-    <div className="m-5">
-    <Table>
-      <thead>
-        <tr>
-          <th>{userPawFiles.displayName}</th>
-          <th>{userPawFiles.interests}</th>
-          <img style= {{width: 200}}src= {userPawFiles.pawFilePic} />
-        </tr>
-      </thead>
-      <tbody>
-          {
-            <UserProfileItem key={userPawFiles.id} user={userPawFiles} setUserPawfile={setUserPawfiles} />
-          }
-
-      <Button color="warning" value={false} onClick={(e) => { DeleteSwipe(e)
-        console.log("3")}} >Undo</Button>
-      <Button color="danger" value={false} onClick={(e) => { handleSaveNewDisSwipe(e)
-        console.log("2")}} >Scaredey-Cat</Button>
-      <Button color="success" value={true} onClick={(e) => { 
-        handleSaveNewSwipe(e)
-          console.log("1")
-          }} >Throw-a-Bone</Button>
-      
-      </tbody>
-    </Table>
-    </div>
+      <Card className="SwipeCards"
+      color="dark"
+      outline
+      style={{
+        width: '18rem'
+      }}
+    >
+        <img className="SwipeImages" src= {userPawFiles.pawFilePic} />
+      <CardBody >
+        <CardTitle tag="h5">{userPawFiles.displayName}
+          
+        </CardTitle>
+        <CardSubtitle
+          className="mb-2 text-muted"
+          tag="h6"
+        >
+            {userPawFiles.interests}
+          
+        </CardSubtitle>
+        {
+                <UserProfileItem key={userPawFiles.id} user={userPawFiles} setUserPawfile={setUserPawfiles} />
+              }
+        <Button color="warning" value={false} onClick={(e) => { DeleteSwipe(e)
+            console.log("3")}} >Undo</Button>
+          <Button color="danger" value={false} onClick={(e) => { handleSaveNewDisSwipe(e)
+            console.log("2")}} >Scaredey-Cat</Button>
+          <Button color="success" value={true} onClick={(e) => { 
+            handleSaveNewSwipe(e)
+              console.log("1")
+              }} >Throw-a-Bone</Button>
+      </CardBody>
+    </Card>
   );
 }
 
