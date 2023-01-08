@@ -1,37 +1,107 @@
+import { Image } from "cloudinary-react";
 import React, { useEffect, useState } from "react";
-import { Table } from "reactstrap";
-import { UserProfileItem } from "./UserProfileItem";
-import UserProfilePictures from "./UserProfilePictures";
+import { Table, Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
+import { getImagesByUserId}  from "./UserProfilePictures";
+
+
 
 export const CurrentUserPawfile = () => {
-  const [userPawFiles, setUserPawfiles] = useState({});
+  const [userPawFiles, setUserPawfiles] = useState([]);
 
   // Retrieve the logged in user's details from local storage
-  const localUserObject = localStorage.getItem("userProfile")
+  let localUserObject = localStorage.getItem("userProfile")
   const currentUserObject = JSON.parse(localUserObject)
+  const CurrentUserId = currentUserObject.id;
+  const apiUrl = "https://localhost:5001";
+  const [publicId, setPublicId] = useState("");
   
-  return(
-      <div className="m-5">
+  useEffect(()=>{
+    let localUserObject = localStorage.getItem("userProfile")
+    const currentUserObject = JSON.parse(localUserObject)
+    const CurrentUserId = currentUserObject.id;
+    getImagesByUserId(CurrentUserId)
+    .then(setUserPawfiles)
+}, []);
+
+
+if (!userPawFiles) {
+  return null;
+}
+
+console.log(userPawFiles)
+return(
+  <div className="m-5">
       <Table>
-        <thead>
-          <tr>
-            <th>{currentUserObject.displayName}</th>
-            <th>{currentUserObject.interests}</th>
-            <th>{currentUserObject.pawFilePic}</th>
-            <th><UserProfilePictures/></th>
-            <th>{currentUserObject.email}</th>
-          </tr>
+        
+        <thead className="PawFileInfo">
+          <th className="btnn">UserName
+            <p className="UserInput">{currentUserObject.displayName}</p>
+          </th>
+          <th className="btnn">Interests
+            <p className="UserInput">{currentUserObject.interests}</p>
+          </th >
+          <th className="btnn">Email
+            <p className="UserInput">{currentUserObject.email}</p> 
+          </th>
+          
         </thead>
-        <tbody>
-            {
-                <UserProfileItem key={currentUserObject.id} user={currentUserObject} setUserPawfile={setUserPawfiles} />
-            }
-        </tbody>
+
+        
       </Table>
+      <div className="PawFileCards">
+      {
+        userPawFiles.map((pawfileObject) => {
+          return <img className="PawFileImg" src={pawfileObject.imageUrl} />
+        })
+      }
+    </div>
+
     </div>
   );
 }
 
+
+
+
+
+
+
+
+
+
+
+
+// const PostDetails = () => {
+//   const [post, setPost] = useState();
+//   const { id } = useParams();
+
+//   useEffect(() => {
+//     getPost(id).then(setPost);
+//   }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* {
+userPawFiles.map(pawfileObject => {
+  return <img src={pawfileObject.imgUrl} />
+})
+} */}
 
 
 

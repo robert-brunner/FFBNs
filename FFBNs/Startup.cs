@@ -31,6 +31,7 @@ namespace FFBNs
             services.AddControllers();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<ISwipeRepository, SwipeRepository>();
+            services.AddTransient<IUserImageRepository, UserImageRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FFBNs", Version = "v1" });

@@ -11,3 +11,257 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Times-New-Roman',
     monospace;
 } */
+
+
+/*PotentialPlatemate */
+.PawFileImg{
+    width:  300px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.SwipeImages{
+    width:  400;
+    height: 400px;
+    object-fit: cover;
+}
+
+.MainBody{
+  background: salmon;
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/* Heading */
+
+.SwipeCards .card-body h5{
+  font-size:16px;
+ }
+.SwipeCards{
+  padding: 5px;
+  background-color: white;
+  background-size: auto 85%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 45vh;
+  max-width: 300px;
+  height: 550px;
+  max-height: 570px;
+  will-change: transform;
+  border-radius: 10px;
+  box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
+  0 10px 10px -10px rgba(50, 50, 73, 0.3);
+  position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+
+box-shadow:17px 11px 100px -4px #1d0b0b;
+}
+
+.SwipeCards .card-body .btn{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+
+}
+/* Button */
+.SwipeCards .card-body .btn-success{
+  transform:translatex(6px) translatey(201px);
+ }
+ 
+ /* Button */
+ .SwipeCards .card-body .btn-danger{
+  transform:translatex(-132px) translatey(201px);
+ }
+ 
+ /* Button */
+ .SwipeCards .card-body .btn-warning{
+  transform:translatex(-132px) translatey(156px);
+ }
+ 
+ /* Heading */
+ .SwipeCards .card-body h5{
+  text-align:right;
+ }
+ 
+ /* Heading */
+ .SwipeCards .card-body h6{
+  text-align:right;
+ }
+
+ /* ----------------------------------------------------------------- */
+
+
+ .PawFileCards{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  display:inline-flex;
+  justify-content:center;
+  border-color:rgba(0,0,0,0.89);
+  border-width:5px;
+  border-style:solid;
+  border-radius: 10px;
+  box-shadow:3px 3px 19px 1px #000000;
+  will-change: transform;
+ }
+
+ .table .PawFileInfo th{
+  position: relative;
+  top: 10%;
+  left: 50%;
+}
+
+/* Button */
+.table .PawFileInfo .btnn{
+  font-size: 1.3vh;
+  letter-spacing:1.6px;
+  font-weight:600;
+  font-style:normal;
+  color:#ffffff;
+  line-height:.5vh;
+  text-align:center;
+ }
+
+ .table .PawFileInfo .UserInput{
+color:#000000b6
+ }
+
+.btnn {
+  background-image: linear-gradient(to right, #fd287c, #ff7654);
+  border-radius: 50px;
+  transform: translate(-150%, -50%);
+  position: absolute;
+  width: 20vw;
+  height: 3vh;
+  font-family:'Montserrat', sans-serif;
+  font-size: 30px;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btnn:hover {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.24), 0 2px 4px 0 rgba(0,0,0,0.19);
+  outline: none;
+}
+
+a {
+  color: black;
+}
+
+.PawFileInfo .btnn p{
+  position:relative;
+  top:1vh;
+  font-size:2vh;
+ }
+
+ /* Btnn */
+.table .PawFileInfo .btnn{
+  line-height:1.7vh;
+ }
+
+
+
+ .navbar a{
+  text-align:left;
+  font-family:'Montserrat', sans-serif;
+ }
+
+ /* ------------------------------------------------------------- */
+
+ .MatchCards{
+  padding: 5px;
+  background-color: white;
+  background-size: auto 85%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 45vh;
+  max-width: 300px;
+  height: 550px;
+  max-height: 570px;
+  will-change: transform;
+  border-radius: 10px;
+  box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
+  0 10px 10px -10px rgba(50, 50, 73, 0.3);
+  position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+
+box-shadow:17px 11px 100px -4px #1d0b0b;
+ }
+ .MsgBtn{
+  background-image: linear-gradient(to right, #fd287c, #ff7654);
+  position:absolute;
+  top:41vh;
+  left:18vh;
+ }
+
+ .MtchTxt{
+
+ }
+
+ /* Table Data */
+.card-text tr td{
+  font-style:italic;
+  color:#187adc;
+  text-shadow:rgba(0, 0, 0, 0.3) 0px 1px 1px;
+  text-transform:uppercase;
+  filter: hue-rotate(77deg) saturate(1.34);
+ }
+
+ .ralph{
+  background-image: linear-gradient(to right, #fd287c, #ff7654);
+ }
+
+ .felicia{
+  border-radius: 10px;
+  
+ }
+ /* Input */
+.mx-5 div input[type=file]{
+  box-shadow:0px 0px 3px 0px #110d3a inset;
+ }
+
+ /* Border */
+ .mx-5 .border{
+  background-color:rgba(218,209,209,0.62);
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  box-shadow:0px 0px 9px 0px #212529;
+  transform:translatex(0px) translatey(0px);
+ }
+ 
+ /* Input */
+ .mx-5 form input[type=text]{
+  box-shadow:0px 0px 6px 0px #212529 inset;
+ }
+
+ .m-5 form {
+  background-color:rgba(218,209,209,0.62);
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  box-shadow:0px 0px 9px 0px #212529;
+  transform:translatex(0px) translatey(0px);
+  
+ }
+
+ .welcomeTxt{
+  color: #fd287c;
+  font-family:'Montserrat', sans-serif;
+  font-weight:700;
+ }
