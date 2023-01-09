@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useNavigate, Link } from "react-router-dom";
 import { login } from "../../managers/UserProfileManager";
 import { PotentialPlaymate } from "../users/PotentialPlaymate";
+import {LoginSlider} from "../loginSlider/LSlider"
 
 export const  Login = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
@@ -50,6 +51,7 @@ export const  Login = ({ setIsLoggedIn }) => {
           </em>
         </fieldset>
       </Form>
+      <LoginSlider/>
     </div>
   );
 }
