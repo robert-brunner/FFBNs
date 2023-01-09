@@ -6,7 +6,7 @@ namespace FFBNs.Repositories
 {
     public interface IUserRepository
     {
-        List<UserProfile> GetAllMatches();
+        List<UserProfile> GetAllMatches(int id);
 
         //UserProfile GetById(int id);
         UserProfile GetAtRandom();

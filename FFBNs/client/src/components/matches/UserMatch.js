@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Table, Button, Card, CardBody, CardTitle, CardSubtitle, CardText } from "reactstrap";
 import { Navigate, useParams } from "react-router-dom";
 import { getALLMatches } from "../../managers/MatchManager";
+// import { getCurrentUserMatches } from "../../managers/UserProfileManager";
 import { MatchItem } from "./MatchItem";
 import { getImagesByUserId } from "../users/UserProfilePictures";
+
 
 
 
@@ -18,7 +20,6 @@ export const Match = () => {
         getALLMatches()
         .then(allMatch => { setMatch(allMatch)});
     };
-
 
     useEffect(() =>{
         getMatches();

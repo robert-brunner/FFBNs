@@ -55,7 +55,7 @@ namespace FFBNs.Repositories
         //}
 
 
-        public List<UserProfile> GetAllMatches()
+        public List<UserProfile> GetAllMatches(int id)
         {
             using (var conn = Connection)
             {
@@ -67,15 +67,15 @@ namespace FFBNs.Repositories
                              Right JOIN Swipes ON
                                         d.Id = Swipes.DogId 
                                    JOIN Dog do on Swipes.OtherDogId = do.Id 
-                                  WHERE Swipes.DogId = 1 
+                                  WHERE Swipes.DogId = @Id 
                        INTERSECT SELECT d.Id AS     
                                         'DogWho Liked You', d.UserName AS 'Dog Who Liked You Name'  
                                    FROM Dog d 
                              Right JOIN Swipes ON
                                         d.Id = Swipes.DogId 
                                    JOIN Dog do on Swipes.OtherDogId = do.Id 
-                                  WHERE Swipes.OtherDogId = 1";
-
+                                  WHERE Swipes.OtherDogId = @Id";
+                    DbUtils.AddParameter(cmd, "@Id", id);
                     var reader = cmd.ExecuteReader();
 
                     var userProfiles = new List<UserProfile>();

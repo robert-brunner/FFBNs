@@ -70,11 +70,16 @@ export const UpdateDog = (user) => {
     return fetch(`${apiUrl}/api/UserProfile`)//http GET request or  `/api/userProfile`
     .then((res) => res.json())
   };
-  export const GetUllPawFiles = () => {
-    return fetch(`${apiUrl}/api/UserProfile/GetAll`)//http GET request or  `/api/userProfile`
-    .then((res) => res.json())
-  };
-  
+  //-----------orginal---------
+  // export const GetUllPawFiles = () => {
+  //   return fetch(`${apiUrl}/api/UserProfile/GetAll`)//http GET request or  `/api/userProfile`
+  //   .then((res) => res.json())
+  // };
+  //---these are
+  // export const GetUllPawFiles = () => {
+  //   return fetch(`${apiUrl}/api/UserProfile/GetAll`)//get current user information from local storage
+  //   .then((res) => res.json())
+  // };
   
   export const getUserById = (userId) => {
     return fetch(`${apiUrl}/api/UserProfile/${userId}`)//http GET request or  `/api/userProfile`
@@ -86,6 +91,19 @@ export const UpdateDog = (user) => {
     const CurrentUserObject = JSON.parse(localStorage.getItem('userProfile').id)
     return CurrentUserObject
   };
+  //  export const getCurrentUserMatches = () => {
+  //   // get the current user from local storage
+  //   const currentUser = getCurrentUser('userProfile');
+  
+  //   // use the current user to fetch their matches
+  //   return fetch(`${apiUrl}/api/UserProfile/GetAllMatches${currentUser}`)
+  //     .then((res) => res.json())
+  //     .then((matches) => {
+  //       // filter the matches to only include those that involve the current user
+  //       const currentUserMatches = matches.filter((match) => match.includes(currentUser));
+  //       return currentUserMatches;
+  //     });
+  // };
   
   
   

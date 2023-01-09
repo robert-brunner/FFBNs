@@ -20,7 +20,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
   return (
     <div className="Header, welcomeTxt">
       <Navbar color="light" light expand="md">
-        <NavbarBrand tag={RRNavLink} to="/PotentialPlaymate">Cute & Fluffy</NavbarBrand>
+        <NavbarBrand tag={RRNavLink} to="/PotentialPlaymate">Cute & Furry</NavbarBrand>
         <NavLink  tag={RRNavLink} to="/userEdit" className="nav-link p-2,">Edit Pawfile</NavLink>
         <NavLink tag={RRNavLink} to="/UserMatch" className="nav-link p-2">Matches</NavLink>
 

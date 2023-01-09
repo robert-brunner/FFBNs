@@ -3,6 +3,7 @@ using FFBNs.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 namespace FFBNs.Controllers
 {
@@ -18,14 +19,35 @@ namespace FFBNs.Controllers
             _userRepository = userRepository;
         }
 
-        //GET: List the PawFiles that are matched with 
-        [HttpGet("GetAllMatches")]
-        public IActionResult GetAllMatches()
+        ////GET: List the PawFiles that are matched with 
+        //[HttpGet("GetAllMatches{id}")]
+        //public IActionResult GetAllMatches(int id)
+        //{
+        //    return Ok(_userRepository.GetAllMatches(id));
+        //}
+
+        [HttpGet("GetAllMatches{id}")]
+        public IActionResult GetAllMatches(int id)
         {
-            return Ok(_userRepository.GetAllMatches());
+            var matches = _userRepository.GetAllMatches(id);
+            if (matches == null || !matches.Any())
+            {
+                return NoContent();
+            }
+            return Ok(matches);
         }
 
 
+        //[HttpGet("{id}")]
+        //public IActionResult Get(int id)
+        //{
+        //    var userProfile = _userRepository.GetById(id);
+        //    if (userProfile == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(userProfile);
+        //}
 
         // generates a random profile from the database
         [HttpGet]
