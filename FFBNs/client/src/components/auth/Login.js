@@ -23,7 +23,7 @@ export const  Login = ({ setIsLoggedIn }) => {
         // else 
         if (r) {  //if a user is active hit here and navigate into application
           setIsLoggedIn(true)
-          navigate('/PotentialPlaymate')
+          navigate('/CurrentUserPawfile')
         }
         else { //invalid Email or password will hit here
           alert("Invalid Email")
