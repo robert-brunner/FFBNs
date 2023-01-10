@@ -95,19 +95,20 @@ export const PotentialPlaymate = () => {
           <UserProfileItem key={userPawFiles.id} user={userPawFiles} setUserPawfile={setUserPawfiles} />
         }
         <Button color="warning" value={false} onClick={(e) => { DeleteSwipe(e)
-            console.log("3")}} >Undo</Button>
-          <Button color="danger" value={false} onClick={(e) => { handleSaveNewDisSwipe(e)
-            console.log("2")}} >Scaredey-Cat</Button>
-          <Button color="success" value={true} onClick={(e) => { 
+            console.log("3")}}><img src="https://res.cloudinary.com/dpwgvs3m0/image/upload/v1673327674/Recycle_jggpna.png" /></Button>
+          <Button classname="scared"color="danger" value={false} onClick={(e) => { handleSaveNewDisSwipe(e)
+            console.log("2")}} ><img src="https://res.cloudinary.com/dpwgvs3m0/image/upload/v1673327673/ScaredyCat_tw67lx.png" /></Button>
+          <Button className="BoneLike" color="success" value={true} onClick={(e) => { 
             handleSaveNewSwipe(e)
             console.log("1")
-          }} >Throw-a-Bone</Button>
+          }}><img src="https://res.cloudinary.com/dpwgvs3m0/image/upload/v1673327673/Bone_w4hfte.png" /></Button>
               
       </CardBody>
     </Card>
   );
 }
-
+//C:\Users\Robert\workspace\FFBNs\FFBNs\FFBNs\client\src\components\PNGImages\ScaredyCat.png
+//src\components\PNGImages\ScaredyCat.png
 {/* <button>
 <img src="/some-img-url/" alt="Submit Form">
 </button> */}

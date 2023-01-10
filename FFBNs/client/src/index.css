@@ -302,3 +302,87 @@ box-shadow:17px 11px 100px -4px #1d0b0b;
   font-family:'Montserrat', sans-serif;
   font-weight:700;
  }
+
+ /* -----------------------------------------------------------------*/
+
+ .scared{
+  font-family: Roboto, sans-serif;
+  font-weight: 0;
+  font-size: 14px;
+  color: #fff;
+  background-color: #d62828;
+  padding: 10px 30px;
+  border: solid #ffffff 2px;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition : 1000ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction:row-reverse;
+  align-items: center;
+  cursor: pointer;
+  }
+  
+  .btn:hover{
+  
+  transition : 1000ms;
+  transform : translateY(-0px);
+  background-color: #fff;
+  color: #ffffff;
+  border: solid 2px #e76f51;
+  }
+
+  /*Scared*/
+  .card-body .btn-danger img{
+    min-width:0px;
+    overflow:visible;
+    display:inline-block;
+    min-height:8px;
+    width:29% !important;
+   }
+   .SwipeCards .card-body .btn-danger{
+    width:47%;
+    display:inline-block;
+    transform:translatex(-138px) translatey(199px);
+    height:41px;
+    padding-top:3px;
+    height:7%;
+    top:50.3%;
+   }
+
+   /*Like*/
+
+   .card-body .btn-success img{
+    min-width:0px;
+    overflow:visible;
+    display:inline-block;
+    min-height:8px;
+    width:29% !important;
+   }
+   .SwipeCards .card-body .btn-success{
+    width:47%;
+    display:inline-block;
+    transform:translatex(5px) translatey(199px);
+    height:41px;
+    padding-top:3px;
+    height:7%;
+    top:50.3%;
+   }
+   /*Warning*/
+   .card-body .btn-warning img{
+    min-width:0px;
+    overflow:visible;
+    display:inline-block;
+    min-height:8px;
+    width:29% !important;
+   }
+   .SwipeCards .card-body .btn-warning{
+    width:47%;
+    display:inline-block;
+    transform:translatex(-138px) translatey(156px);
+    width:82px;
+    height:41px;
+    padding-top:3px;
+    height:7%;
+    top:50.3%;
+   }
