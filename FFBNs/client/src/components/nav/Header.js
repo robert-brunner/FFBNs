@@ -20,12 +20,12 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
   return (
     <div className="Header, welcomeTxt">
       <Navbar color="light" light expand="md">
-        <NavbarBrand tag={RRNavLink} to="/PotentialPlaymate">Cute & Furry</NavbarBrand>
-        <NavLink  tag={RRNavLink} to="/userEdit" className="nav-link p-2,">Edit Pawfile</NavLink>
-        <NavLink tag={RRNavLink} to="/UserMatch" className="nav-link p-2">Matches</NavLink>
+        <NavbarBrand className= "button mr-2, CuteNFURRY" tag={RRNavLink} to="/PotentialPlaymate">CUTE-N-FURRY</NavbarBrand>
+        <NavLink tag={RRNavLink} to="/userEdit" className="nav-link p-2, HeaderButton">Edit Pawfile</NavLink>
+        <NavLink tag={RRNavLink} to="/UserMatch" className="nav-link p-2, HeaderButton">Matches</NavLink>
 
-        
-        <NavLink tag={RRNavLink} to="/CurrentUserPawfile" className="nav-link p-2">User PawFile</NavLink>
+
+        <NavLink tag={RRNavLink} to="/CurrentUserPawfile" className="nav-link p-2, HeaderButton">User PawFile</NavLink>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           

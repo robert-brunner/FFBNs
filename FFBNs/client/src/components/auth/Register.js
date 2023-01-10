@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useNavigate } from "react-router-dom";
 import { register } from "../../managers/UserProfileManager";
+import { LoginSlider } from "../loginSlider/LSlider";
 
 
 export default function Register({ setIsLoggedIn }) {
@@ -40,6 +41,7 @@ export default function Register({ setIsLoggedIn }) {
           </FormGroup>
         </fieldset>
       </Form>
+      <LoginSlider classname="RSlider"/>
     </div>
   );
 };

@@ -47,20 +47,20 @@ export const Match = () => {
     <CardTitle tag="h5">
     You've Got Friends!
     </CardTitle>
-    <CardSubtitle
+    {/* <CardSubtitle
       className="mb-2 text-muted"
       tag="h6"
     >
       Why Not Send Them A Message?
-    </CardSubtitle>
+    </CardSubtitle> */}
     <CardText className="MtchTxt">
     {matches.map((match) => (
                 <MatchItem key={match.id} user={match} setMatch = {setMatch} />  //using key and prop
               ))}
     </CardText>
-    <Button className="MsgBtn">
+    {/* <Button className="MsgBtn">
       Messages
-    </Button>
+    </Button> */}
   </CardBody>
 </Card>
         </>
