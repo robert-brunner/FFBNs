@@ -4,7 +4,7 @@ Cute-N-Furry is an all-in-one dog friend finding platform built in two consecuti
 
 # SetUp
 ```python
-//Clone down the database and navigate to ../FFBNs/FFBNs/FFBNs.sln
+Clone down the database and navigate to ../FFBNs/FFBNs/FFBNs.sln
 ### `npm start'
 
 ```
