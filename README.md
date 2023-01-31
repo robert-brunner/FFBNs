@@ -4,10 +4,6 @@ Cute-N-Furry is an all-in-one dog friend finding platform built in two consecuti
 
 ## Demo
 
-<img src="https://im.ezgif.com/tmp/ezgif-1-7e46d21d7d.gif"
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />
-
-
 https://www.loom.com/share/6dd46234ec9e41f89be515aca8fd4194
 
 # Setup
