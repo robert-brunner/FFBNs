@@ -4,11 +4,8 @@ Cute-N-Furry is an all-in-one dog friend finding platform built in two consecuti
 
 ## Demo
 
-<a href="https://www.loom.com/share/6dd46234ec9e41f89be515aca8fd4194" target="_blank"><img src="<a href="https://www.loom.com/share/6dd46234ec9e41f89be515aca8fd4194">
-    <p>FFBNs - 18 January 2023 - Watch Video</p>
-    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/6dd46234ec9e41f89be515aca8fd4194-with-play.gif">
-  </a>" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+![image](https://user-images.githubusercontent.com/106982994/215885223-5d6b33bf-2c2c-42b5-8c25-6ab031d5c5e2.png)
+
 
 # Setup
 
