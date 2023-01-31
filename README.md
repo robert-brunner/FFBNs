@@ -4,14 +4,10 @@ Cute-N-Furry is an all-in-one dog friend finding platform built in two consecuti
 
 ## Demo
 https://www.loom.com/share/6dd46234ec9e41f89be515aca8fd4194
-<img src="https://im.ezgif.com/tmp/ezgif-1-7e46d21d7d.gif" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" />
-
 
 # Setup
 
-Clone down the repo.  You will need to insert this additional portion into SQL server:
-
+Clone down the repo.
 
 # Implementation
 ![Start FFBNS SLN_00000](https://user-images.githubusercontent.com/106982994/215883558-0e15c62e-b0fc-4370-b830-6ebb35a6fbe0.jpg)
